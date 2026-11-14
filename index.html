@@ -6,79 +6,34 @@
     <title>Database Isu Nasional Indonesia 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f4f6f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .hero-section { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px 0; margin-bottom: 30px; border-radius: 0 0 20px 20px; }
-        .historical-essay { background-color: white; border-left: 5px solid #ffc107; border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px; }
-        .card { margin-bottom: 20px; border: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        body { background-color: #f8f9fa; }
+        .card { margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.2s; }
+        .card:hover { transform: translateY(-3px); }
         .badge-type { background-color: #0d6efd; }
-        .quote-box { background: #fdfaf2; border-left: 4px solid #ff9800; padding: 15px; font-style: italic; margin: 15px 0; border-radius: 4px; }
     </style>
 </head>
 <body>
-
-    <!-- Header Hero -->
-    <div class="hero-section text-center">
-        <div class="container">
+    <div class="container py-5">
+        <div class="text-center mb-5">
             <h1 class="fw-bold">Database Isu Nasional & Referensi Akademis 2026</h1>
-            <p class="lead opacity-75">Portal Navigasi Isu Krusial & Studi Literatur Open Access</p>
-        </div>
-    </div>
-
-    <div class="container">
-        
-        <!-- SECTION TERATAS: ANALISIS HISTORIS DAN MEMOAR SANG AYAH (PRABOWO & SOEMITRO) -->
-        <div class="historical-essay">
-            <h2 class="fw-bold text-dark mb-4">📝 Sorotan Sejarah: Rekam Jejak Prabowo Subianto & Catatan Sang Ayah (Prof. Soemitro)</h2>
-            
-            <div class="row">
-                <div class="col-lg-7">
-                    <h5 class="fw-bold text-danger">1. Rekam Jejak Kontroversi dalam Pusaran Reformasi 1998</h5>
-                    <p class="text-muted" style="text-align: justify;">
-                        Berdasarkan investigasi independen, dokumen militer resmi Dewan Kehormatan Perwira (DKP) 1998, serta literatur sejarah seperti buku <em>"Sintong Panjaitan: Perjalanan Seorang Prajurit Para Komando"</em> dan laporan <strong>KPP-HAM Komnas HAM</strong>, Letjen (Purn.) Prabowo Subianto dikaitkan erat dengan beberapa peristiwa krusial:
-                    </p>
-                    <ul>
-                        <li><strong>Penculikan Aktivis 1997/1998:</strong> Selaku Danjen Kopassus, ia bertanggung jawab atas pembentukan Tim Mawar yang terbukti melakukan penahanan ilegal terhadap 23 aktivis pro-demokrasi. 13 di antaranya masih dinyatakan hilang hingga saat ini.</li>
-                        <li><strong>Insubordinasi Militer:</strong> Keputusan DKP No. KEP/03/VIII/1998/DKP menyimpulkan adanya tindakan melampaui wewenang dan komando resmi, yang berujung pada pemberhentiannya secara hormat dari dinas militer pada Agustus 1998 oleh Presiden B.J. Habibie.</li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-primary">2. Apa Kata Prof. Soemitro Djojohadikusumo dalam Memoarnya?</h5>
-                    <p class="text-muted" style="text-align: justify;">
-                        Sebagai ayah sekaligus tokoh ekonomi legendaris Indonesia, Prof. Soemitro secara lugas membedah karakter anaknya di buku memoarnya <em>"Jejak Perlawanan Begawan Ekonomi" (2000)</em>:
-                    </p>
-                    <div class="quote-box">
-                        "Saya tahu anak saya bukan malaikat, tetapi dia juga bukan iblis seperti yang dicitrakan oleh musuh-musuh politiknya. Prabowo adalah korban dari konspirasi tingkat tinggi di akhir masa kekuasaan mertuanya (Soeharto)."
-                        <br><span class="small text-muted fw-bold">— Soemitro Djojohadikusumo (Memoar, Hlm. 421)</span>
-                    </div>
-                    <p class="text-muted small" style="text-align: justify;">
-                        Soemitro mengungkapkan rasa kecewa mendalam terhadap elite Orde Baru dan faksi militer rival yang menjadikan anaknya kambing hitam demi menyelamatkan posisi mereka sendiri saat rezim runtuh.
-                    </p>
-                </div>
-            </div>
-            <hr>
-            <p class="text-muted small mb-0"><strong>Sumber Rujukan Utama Website ini:</strong> Dokumen DKP 1998, Laporan KPP-HAM Komnas HAM 1999, Buku <em>"Detik-Detik Yang Menentukan"</em> (B.J. Habibie, 2006), dan Memoar Resmi Prof. Soemitro Djojohadikusumo.</p>
+            <p class="lead text-muted">Sumber data Open Access otomatis terintegrasi untuk Web Hosting GitHub</p>
         </div>
 
-        <!-- Navigasi Filter Database -->
-        <h4 class="fw-bold mb-3 text-dark">📚 Telusuri Literatur & Dokumen Akademis Gratis</h4>
         <div class="row mb-4">
             <div class="col-md-3">
-                <button onclick="filterTopic('all')" class="btn btn-dark w-100 mb-2">Semua Referensi</button>
+                <button onclick="filterTopic('all')" class="btn btn-dark w-100 mb-2">Semua Topik</button>
             </div>
             <div class="col-md-3">
-                <button onclick="filterTopic('presiden_indonesia')" class="btn btn-warning w-100 mb-2 fw-bold text-dark">Presiden Indonesia (Baru)</button>
+                <button onclick="filterTopic('karhutla_lengkap')" class="btn btn-danger w-100 mb-2">Karhutla Lengkap (500 Sumber)</button>
             </div>
             <div class="col-md-3">
-                <button onclick="filterTopic('karhutla_lengkap')" class="btn btn-danger w-100 mb-2">Karhutla Lengkap</button>
+                <button onclick="filterTopic('nepotisme_dinasti')" class="btn btn-primary w-100 mb-2">Nepotisme & Politik</button>
             </div>
             <div class="col-md-3">
-                <button onclick="filterTopic('nepotisme_dinasti')" class="btn btn-primary w-100 mb-2">Nepotisme & Dinasti</button>
+                <button onclick="filterTopic('mbg_apbn')" class="btn btn-success w-100 mb-2">MBG & APBN</button>
             </div>
         </div>
 
-        <!-- Area Kartu Sumber Informasi -->
         <div id="content-area" class="row"></div>
     </div>
 
@@ -107,7 +62,7 @@
             }
 
             if (itemsToRender.length === 0) {
-                container.innerHTML = '<div class="col-12 text-center"><p class="text-muted">Tidak ada referensi tersedia untuk kategori ini.</p></div>';
+                container.innerHTML = '<div class="col-12 text-center"><p class="text-muted">Tidak ada data tersedia.</p></div>';
                 return;
             }
 
