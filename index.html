@@ -1,196 +1,95 @@
-<!doctype html>
-<html lang="id"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0a0507">
-<title>Negara Lagi Kenapa Sih? Data, fakta, dan sumbernya</title>
-<meta name="description" content="Karhutla, demo, MK, MBG, pajak digital, dan PP Tunas: dirapikan jadi data, tanggal, dan tautan sumber.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
-<style>:root{--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mw:clamp(110px,18vw,220px);color-scheme:dark}
-body,body[data-mood=maroon]{--s1:#0a0507;--s2:#1c070c;--s3:#2e0b13;--glow:#7a1427;--m1:#ffd6d0;--m2:#d9626b;--m3:#7a1427;--sea1:#240810;--sea2:#4a0f1c;--acc:#8b1a2f;--acc2:#e0707f;--gold:#c9a063;--ink:#f3e6e8;--muted:#bda2a7;--glass:rgba(32,9,14,.66);--line:rgba(224,112,127,.26)}
-body[data-mood=ember]{--s1:#0c0604;--s2:#220c05;--s3:#3a1608;--glow:#a8431a;--m1:#ffe2b8;--m2:#e88a45;--m3:#8a2e10;--sea1:#2a0e06;--sea2:#5a1f0c;--acc:#b5471f;--acc2:#f29a62;--gold:#e0b070;--glass:rgba(34,12,5,.66);--line:rgba(242,154,98,.26)}
-body[data-mood=midnight]{--s1:#04060d;--s2:#0a1022;--s3:#121a38;--glow:#2a3f8a;--m1:#e6ecff;--m2:#8fa4e0;--m3:#33458f;--sea1:#0a1228;--sea2:#14224a;--acc:#34499a;--acc2:#8fa8ff;--gold:#a9b8e8;--ink:#e8ecfa;--muted:#a3abc9;--glass:rgba(10,16,38,.66);--line:rgba(143,168,255,.26)}
-body[data-mood=plum]{--s1:#07040c;--s2:#17091f;--s3:#2a1038;--glow:#6a2a8a;--m1:#f5dcff;--m2:#b977d9;--m3:#5a2478;--sea1:#1a0a26;--sea2:#34154a;--acc:#6a2a8a;--acc2:#d29aee;--gold:#c8a0e0;--ink:#f1e6f6;--muted:#b9a2c4;--glass:rgba(22,8,32,.66);--line:rgba(210,154,238,.26)}
-body[data-mood=ash]{--s1:#050505;--s2:#121212;--s3:#1e1e1e;--glow:#555;--m1:#f0f0f0;--m2:#a8a8a8;--m3:#555;--sea1:#141414;--sea2:#262626;--acc:#555;--acc2:#d0d0d0;--gold:#bdbdbd;--ink:#f0f0f0;--muted:#a8a8a8;--glass:rgba(20,20,20,.66);--line:rgba(220,220,220,.22)}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{margin:0;background:var(--s1);color:var(--ink);font:400 1.02rem/1.7 var(--sans);overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
-a{color:inherit}button{font:inherit}
-.sky{position:fixed;inset:0;z-index:-5;overflow:hidden;background:radial-gradient(ellipse at 80% 10%,var(--glow),transparent 38%),linear-gradient(170deg,var(--s1),var(--s2) 55%,var(--s3))}
-.sky i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.33;background:var(--acc);animation:drift 28s ease-in-out infinite alternate}
-.sky i:nth-child(1){width:44vw;height:44vw;left:-10vw;top:14vh}.sky i:nth-child(2){width:36vw;height:36vw;left:40vw;top:44vh;animation-duration:34s;opacity:.2}.sky i:nth-child(3){width:30vw;height:30vw;right:-8vw;top:52vh;animation-duration:24s}
-@keyframes drift{to{transform:translate(7vw,-5vh) scale(1.15)}}
-#stars{position:fixed;inset:0;z-index:-4;pointer-events:none}
-.moon{position:fixed;right:8%;top:100px;width:var(--mw);aspect-ratio:1;border-radius:50%;z-index:-3;pointer-events:none;background:radial-gradient(circle at 36% 32%,var(--m1),var(--m2) 55%,var(--m3));box-shadow:0 0 30px 4px var(--glow),0 0 110px 30px var(--glow);animation:glow 7s ease-in-out infinite alternate}
-@keyframes glow{to{filter:brightness(1.12);transform:scale(1.03)}}
-.crack{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.crack path{fill:none;stroke:var(--gold);stroke-width:.9;stroke-linecap:round;filter:drop-shadow(0 0 3px var(--gold))}
-.sea{position:fixed;bottom:0;left:0;width:100%;height:22vh;min-height:130px;z-index:-2;overflow:hidden;background:linear-gradient(180deg,transparent,var(--sea1) 35%,var(--sea2))}
-.sea:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--acc2),var(--m1),var(--acc2),transparent);box-shadow:0 0 20px 3px var(--acc)}
-.wave{position:absolute;left:-50%;width:200%;height:100%;background:radial-gradient(ellipse at 50% 0,transparent 0 55%,var(--acc2) 56% 57%,transparent 58%) 0 0/50% 100% repeat-x;opacity:.28}
-.wave.one{top:8%;animation:wv 22s linear infinite}.wave.two{top:26%;opacity:.16;animation:wv 15s linear infinite reverse}
-@keyframes wv{to{transform:translateX(25%)}}
-.wrap{width:min(1120px,calc(100% - 44px));margin:auto;position:relative;z-index:1}
-.nav-wrap{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--s1) 70%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font:600 1.5rem var(--serif);text-decoration:none}.brand span{color:var(--acc2)}
-.nav-links{display:flex;gap:24px;font-size:.88rem;color:var(--muted)}.nav-links a{text-decoration:none}.nav-links a:hover{color:var(--acc2)}
-.menu-btn{display:none}
-.hero{min-height:560px;display:flex;align-items:center;padding:80px 0 90px}.hero-copy{max-width:690px}
-.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.hero h1{font:600 clamp(3rem,8vw,6.2rem)/1.04 var(--serif);letter-spacing:-.03em;margin:16px 0 20px}
-.hero h1 em{background:linear-gradient(100deg,var(--acc2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
-.hero p{max-width:540px;color:var(--muted);font-size:1.05rem}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}.scroll-note{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
-button,select,.btn{font-weight:600;font-size:.9rem;border:1px solid var(--line);border-radius:24px;background:#ffffff12;color:var(--ink);padding:9px 18px;cursor:pointer;text-decoration:none;display:inline-block;transition:.2s}
-button:hover,.btn:hover{transform:translateY(-2px);border-color:var(--acc2)}button:disabled{opacity:.5;transform:none}
-.btn.primary,.tabs button[aria-pressed=true],.mood-choice[aria-pressed=true]{background:linear-gradient(135deg,var(--acc),#b5304a);border-color:transparent;color:#fff;box-shadow:0 6px 22px color-mix(in srgb,var(--acc) 70%,transparent)}
-option{background:#1c070c;color:#f3e6e8}
-.section{padding:62px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:26px}
-.section h2{font:600 clamp(2rem,4vw,3rem)/1.15 var(--serif);margin:8px 0 0}.section h3{font:600 1.3rem var(--serif);margin:34px 0 12px}
-.section-intro,.small{max-width:480px;color:var(--muted);font-size:.9rem;margin:0}.small{max-width:70ch;margin:10px 0}
-.glass,.sts>div,.box,article,details{background:var(--glass);border:1px solid #ffffff14;outline:1px solid var(--line);outline-offset:-2px;border-radius:22px;backdrop-filter:blur(14px);box-shadow:0 12px 40px #0008,inset 0 1px 0 #ffffff14}
-.pad{padding:24px}ul.pad{padding-left:46px}
-.sts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:14px}.sts>div{padding:20px;font-size:.88rem;color:var(--muted)}
-.sts b{display:block;font:600 2rem/1.1 var(--serif);color:var(--acc2)}
-.box{position:relative;height:320px;padding:14px}.box.tall{height:400px}.two{display:grid;grid-template-columns:2fr 1fr;gap:16px}
-label{display:block;margin:6px 0 12px;color:var(--muted)}ol{color:var(--muted)}ol a,article a{color:var(--acc2);font-weight:700}
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.big{display:block;margin:18px auto}
-article{padding:16px 22px;margin-bottom:12px;border-left:5px solid var(--acc2)}article small{display:block;color:var(--gold);font-weight:600}
-article.k{border-left-color:#4fc3a1}article.p{border-left-color:#9a8cff}article.d{border-left-color:#f0a04b}article.g{border-left-color:#e57aa6}
-.row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}details{padding:10px 20px;margin-bottom:10px;color:var(--muted)}summary{font-weight:600;color:var(--ink);cursor:pointer}
-.footer{padding:44px 0 120px;border-top:1px solid var(--line);margin-top:40px;color:var(--muted);font-size:.85rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer strong{font:600 1.25rem var(--serif);color:var(--ink)}.backtop{color:var(--acc2)}
-.mood-dock{position:fixed;right:20px;bottom:20px;z-index:30;width:min(300px,calc(100vw - 28px))}
-.mood-toggle{width:100%;display:flex;justify-content:space-between;background:var(--glass);backdrop-filter:blur(12px);box-shadow:0 8px 30px #000a}
-.mood-panel{display:none;margin-top:9px;padding:14px;border:1px solid var(--line);border-radius:22px;background:var(--glass);backdrop-filter:blur(15px)}.mood-panel.open{display:block}
-.mood-panel p{margin:0 0 10px;color:var(--muted);font-size:.8rem}.mood-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.mood-choice{padding:8px 4px;border-radius:14px;font-size:.74rem}.mood-choice span{display:block;font-size:1.3rem}
-:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
-@media(max-width:800px){.two{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.moon{right:-15px;top:125px;opacity:.55}}
-@media(max-width:580px){.wrap{width:calc(100% - 32px)}nav{height:64px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px;background:#0a0507f2;flex-direction:column;gap:15px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.hero{min-height:480px;padding:60px 0 50px}.section{padding:44px 0}.mood-dock{right:12px;bottom:12px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-</style></head>
-<body data-mood="maroon">
-<div class="sky"><i></i><i></i><i></i></div><canvas id="stars" aria-hidden="true"></canvas>
-<div class="moon" aria-hidden="true"><svg class="crack" viewBox="0 0 100 100"><path d="M64 3 L57 17 L66 29 L52 43 L61 57 L47 70 L52 83 L44 98 M66 29 L80 34 M52 43 L38 40"/></svg></div>
-<div class="sea" aria-hidden="true"><div class="wave one"></div><div class="wave two"></div></div>
-<header class="nav-wrap"><nav class="wrap" aria-label="Navigasi utama"><a class="brand" href="#top">Negara<span>?</span></a>
-<button class="menu-btn" id="mb" aria-label="Buka menu">Menu</button>
-<div class="nav-links" id="nl"><a href="#timeline">Timeline</a><a href="#kuis">Kuis</a><a href="#grafik">Grafik</a><a href="#kamus">Kamus</a><a href="#belum">Belum ada jawab</a></div></nav></header>
-<main class="wrap" id="top">
-<section class="hero"><div class="hero-copy"><span class="eyebrow">Data sampai 12 November 2026</span>
-<h1>Negara lagi <em>kenapa</em> sih?</h1>
-<p>Lo enggak salah lihat: beritanya memang numpuk. 202.000 hektare terbakar. 335 pemilik konsesi terindikasi punya titik api. Mahasiswa turun di Jakarta, Bandung, Surabaya. Wapres menyampaikan niat mundur. Yang bikin pusing bukan jumlahnya, tapi enggak ada yang merapikan. Jadi kami rapikan. Tiap angka ada linknya. Cek sendiri, jangan percaya kami.</p>
-<div class="actions"><a class="btn primary" href="#timeline">Baca faktanya</a><a class="btn" href="#kuis">Uji diri</a></div>
-<p class="scroll-note">scroll untuk lanjut</p></div></section>
-<style>.fl{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:14px;margin:0 0 26px}.fl>div{padding:22px}.fl h3{margin:0 0 4px!important;font-size:1.15rem!important}.fl .big-n{font:600 3rem/1 var(--serif);color:var(--acc2)}.fl .cap{color:var(--muted);font-size:.85rem;margin:6px 0 14px}.br{margin:10px 0}.br span{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:4px}.br b{color:var(--ink)}.tr{height:14px;border-radius:8px;background:#ffffff14;overflow:hidden}.tr i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--acc2));transform-origin:left;animation:gr 1.2s ease-out both}@keyframes gr{from{transform:scaleX(0)}}.fl a{color:var(--acc2);font-size:.8rem;font-weight:700}.fl-note{font-size:.85rem;color:var(--gold);margin:0 0 30px}</style>
-<h2 style="font:600 clamp(1.6rem,3.4vw,2.4rem)/1.2 var(--serif);margin:0 0 16px">Langsung ke intinya. Tanpa klik apa-apa.</h2>
-<div class="fl">
-<div class="glass"><h3>Siapa yang duluan dijerat?</h3><p class="cap">Tersangka karhutla 2026, pengumuman Bareskrim.</p>
-<div class="br"><span><em>Perorangan (per 21 Agu)</em><b>72</b></span><div class="tr"><i style="width:100%"></i></div></div>
-<div class="br"><span><em>Perusahaan (30 Sep)</em><b>4</b></span><div class="tr"><i style="width:5.6%"></i></div></div>
-<div class="br"><span><em>Perusahaan (29 Okt)</em><b>20</b></span><div class="tr"><i style="width:27.8%"></i></div></div>
-<a href="https://katadata.co.id/ekonomi-hijau/ekonomi-sirkular/6a8c61be34b70/klh-korporasi-bisa-dimintai-tanggung-jawab-atas-karhutla-meski-tak-sengaja" target="_blank" rel="noopener">Sumber 21 Agu ↗</a> · <a href="https://www.rctiplus.com/news/detail/inews/5485111/4-korporasi-jadi-tersangka-karhutla--siapa-saja-dan-apa-perannya-" target="_blank" rel="noopener">30 Sep ↗</a> · <a href="https://katadata.co.id/berita/nasional/6ae3056c011da/polri-umumkan-20-perusahaan-tersangka-karhutla-empat-berstatus-modal-asing" target="_blank" rel="noopener">29 Okt ↗</a></div>
-<div class="glass"><h3>Titik panas Kalimantan di dalam konsesi</h3><div class="big-n">70%+</div><p class="cap">1 Jan–27 Jul 2026, menurut Walhi.</p>
-<div class="tr"><i style="width:70%"></i></div><p class="cap" style="margin-top:14px">Plus ±335 pemilik konsesi terindikasi punya titik api (KLH).</p>
-<a href="https://katadata.co.id/ekonomi-hijau/ekonomi-sirkular/6a8459cc49f89/kemenhut-tetapkan-29-tersangka-kebakaran-hutan-2026-tak-ada-dari-korporasi" target="_blank" rel="noopener">Sumber Walhi ↗</a> · <a href="https://katadata.co.id/berita/nasional/6a9ab10934606/kepolisian-bidik-korporasi-sawit-diduga-sengaja-bakar-lahan-sumatra-kalimantan" target="_blank" rel="noopener">Sumber KLH ↗</a></div>
-<div class="glass"><h3>Luas yang terbakar</h3><div class="big-n">202.000+</div><p class="cap">hektare, di 340 kabupaten pada 36 provinsi, sampai Agustus 2026 (Kemenhut).</p>
-<a href="https://mongabay.co.id/2026/09/10/ratusan-orang-tersangka-karhutla-bagaimana-penegakan-hukum-korporasi/" target="_blank" rel="noopener">Sumber Mongabay ↗</a></div>
-</div>
-<p class="fl-note">Titik api bukan vonis. Tersangka bukan terpidana. Angka dari pengumuman beda tanggal, jangan dijumlahkan.</p>
-<div class="sts" id="st"></div><p id="scope" class="small"></p><p id="err" hidden>Data gagal dimuat. Buka lewat GitHub Pages atau server lokal.</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Isu Nasional Indonesia 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.2s; }
+        .card:hover { transform: translateY(-3px); }
+        .badge-type { background-color: #0d6efd; }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Database Isu Nasional & Referensi Akademis 2026</h1>
+            <p class="lead text-muted">Sumber data Open Access otomatis terintegrasi untuk Web Hosting GitHub</p>
+        </div>
 
-<section class="section" id="timeline"><div class="section-head"><div><span class="eyebrow">Fakta bersumber</span><h2>Siapa ngomong, kapan, dan buktinya mana.</h2></div><p class="section-intro">Setiap butir punya tanggal, nama pihak yang bicara, dan link. Kalau enggak ada sumbernya, enggak kami tulis.</p></div>
-<div class="tabs" id="tabs"></div><div id="facts"></div><button id="more" class="big">Muat lebih banyak</button></section>
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <button onclick="filterTopic('all')" class="btn btn-dark w-100 mb-2">Semua Topik</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="filterTopic('karhutla_lengkap')" class="btn btn-danger w-100 mb-2">Karhutla Lengkap (500 Sumber)</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="filterTopic('nepotisme_dinasti')" class="btn btn-primary w-100 mb-2">Nepotisme & Politik</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="filterTopic('mbg_apbn')" class="btn btn-success w-100 mb-2">MBG & APBN</button>
+            </div>
+        </div>
 
-<section class="section" id="kuis"><div class="section-head"><div><span class="eyebrow">Uji diri</span><h2>Seberapa kuat lo bedain fakta dari hoaks?</h2></div><p class="section-intro">Tujuh soal, semua dari timeline di atas. Kalau salah, mungkin timeline lo yang nyesatin.</p></div><div class="glass pad" id="q"></div></section>
+        <div id="content-area" class="row"></div>
+    </div>
 
-<section class="section" id="grafik"><div class="section-head"><div><span class="eyebrow">Biar kelihatan polanya</span><h2>Cerita jadi susah dibantah kalau diangka-in.</h2></div><p class="section-intro">Kami cuma menghitung, kesimpulannya lo yang tarik.</p></div>
-<h3>Seberapa sering peneliti nulis soal ini?</h3>
-<figure><div class="box"><canvas id="c1" role="img" aria-label="Grafik garis jumlah publikasi per tahun"></canvas></div><figcaption id="n1" class="small"></figcaption></figure>
-<h3>500 tulisan soal karhutla: kapan dan jenis apa</h3>
-<div class="two"><div class="box"><canvas id="c2" role="img" aria-label="Grafik batang sumber karhutla per tahun"></canvas></div><div class="box"><canvas id="c3" role="img" aria-label="Grafik donat jenis dokumen"></canvas></div></div><p id="n2" class="small"></p>
-<h3>Tulisan paling sering dikutip</h3><label>Topik <select id="s4"></select></label>
-<div class="box tall"><canvas id="c4" role="img" aria-label="Grafik sitasi terbanyak"></canvas></div><ol id="l4"></ol>
-<h3>Kata andalan di judul</h3><label>Topik <select id="s5"></select></label>
-<div class="box tall"><canvas id="c5" role="img" aria-label="Grafik kata terbanyak di judul"></canvas></div><p class="small">Angka = jumlah judul yang memuat kata itu, dari 150 judul per topik.</p>
-<h3>Empat jadi dua puluh. Dalam sebulan.</h3>
-<div class="box"><canvas id="c6" role="img" aria-label="Grafik korporasi tersangka karhutla"></canvas></div>
-<p class="small">Bareskrim 30 Sep: 4 korporasi. Bareskrim 29 Okt: 20. Beda lembaga dan tanggal di grafik ini, jadi jangan dijumlahkan. Tersangka belum berarti bersalah, tapi pertanyaannya jelas: kenapa baru sekarang?</p></section>
+    <script>
+        let webData = {};
 
-<section class="section" id="kamus"><div class="section-head"><div><span class="eyebrow">Biar enggak bingung</span><h2>Jangan debat pakai istilah yang belum dipahami.</h2></div></div><div id="kam"></div>
-<h3>Cek fakta ala kamu</h3><div class="sts" id="tips"></div></section>
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                webData = data;
+                renderData('all');
+            })
+            .catch(err => console.error("Gagal memuat data:", err));
 
-<section class="section" id="belum"><div class="section-head"><div><span class="eyebrow">Jujur aja</span><h2>Yang belum terjawab, dan kami enggak mau pura-pura tahu.</h2></div></div>
-<ul class="glass pad">
-<li>Siapa pemilik akhir (<em>beneficial owner</em>) perusahaan yang untung dari kebakaran 2026? Belum ada sumber di sini yang menyebut nama. Pertanyaannya tetap pantas ditagih.</li>
-<li>Kebakaran 2026 dan Presiden, Wakil Presiden, atau keluarganya? Nol sumber. Makanya kami enggak menuduh siapa-siapa.</li>
-<li>Perkara korporasi masih penyidikan. Tersangka belum terpidana.</li>
-<li>Data publikasi cuma menghitung jumlah tulisan. Data itu tidak membuktikan sebab dan akibat.</li>
-<li>Tiap topik dibatasi 150 data dari OpenAlex, jadi bukan semua publikasi yang ada.</li>
-</ul></section>
-</main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>Negara?</strong><p>Dibuat dari data OpenAlex dan berita yang tautannya tertera di tiap butir.</p><p><b>Marah itu gampang. Paham itu kerja. Bagikan halaman ini, tapi bawa linknya.</b></p></div><a class="backtop" href="#top">Kembali ke atas</a></div></footer>
-<div class="mood-dock"><button class="mood-toggle" id="mt" aria-expanded="false" aria-controls="mp"><span>Mood halaman</span><span>🌙</span></button>
-<div class="mood-panel" id="mp"><p>Ganti suasana warna.</p><div class="mood-options">
-<button class="mood-choice" data-m="maroon" aria-pressed="true"><span>🍷</span>Maroon</button><button class="mood-choice" data-m="ember" aria-pressed="false"><span>🔥</span>Bara</button><button class="mood-choice" data-m="midnight" aria-pressed="false"><span>🌌</span>Tengah malam</button><button class="mood-choice" data-m="plum" aria-pressed="false"><span>🔮</span>Plum</button><button class="mood-choice" data-m="ash" aria-pressed="false"><span>🌫️</span>Abu</button></div></div></div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script>const INLINE_D={"topics": {"karhutla_konsesi": {"n": 150, "cit": 913, "year": {"2000": 1, "2006": 4, "2007": 2, "2008": 2, "2009": 1, "2010": 2, "2011": 3, "2012": 1, "2013": 1, "2014": 3, "2015": 2, "2016": 7, "2017": 7, "2018": 8, "2019": 12, "2020": 10, "2021": 13, "2022": 8, "2023": 16, "2024": 23, "2025": 8, "2026": 16}, "type": {"article": 128, "dissertation": 10, "conference-paper": 2, "preprint": 1, "book": 9}, "words": [["hutan", 142], ["kebakaran", 98], ["lahan", 78], ["provinsi", 32], ["kalimantan", 24], ["riau", 23], ["kabupaten", 19], ["gambut", 18], ["masyarakat", 18], ["hukum", 17], ["pengendalian", 13], ["pencegahan", 12], ["pengelolaan", 12], ["lingkungan", 11], ["tahun", 10]], "top": [{"t": "Analisis Kebakaran Hutan Dan Lahan Di Provinsi Riau", "y": 2019, "c": 76, "u": "https://doi.org/10.31258/dli.6.2.p.67-84"}, {"t": "Faktor-Faktor Yang Mempengaruhi Kebakaran Hutan Di Indonesia Dan Implikasi Kebijakannya", "y": 2015, "c": 66, "u": "https://doi.org/10.23960/jsl13103-112"}, {"t": "IMPLEMENTASI KEBIJAKAN PENGENDALIAN KEBAKARAN HUTAN DAN LAHAN DI PROVINSI SUMATERA SELATAN", "y": 2017, "c": 45, "u": "https://doi.org/10.20886/jakk.2017.14.2.165-186"}, {"t": "Kapabilitas Pemerintah Daerah Provinsi Riau: Hambatan dan Tantangan Pengendalian Kebakaran Hutan dan Lahan", "y": 2016, "c": 35, "u": "https://doi.org/10.22146/jsp.15686"}, {"t": "Penguatan Kelembagaan Dalam Pencegahan dan Pengendalian Kebakaran Hutan dan Lahan di Kabupaten Muaro Jambi Provinsi Jambi", "y": 2017, "c": 34, "u": "https://doi.org/10.18196/jgpp.4175"}, {"t": "Rehabilitasi hutan di Indonesia: akan kemanakah arahnya setelah lebih dari tiga dasawarsa?", "y": 2008, "c": 32, "u": "https://doi.org/10.17528/cifor/002455"}, {"t": "Stabilitas Ekosistem Hutan Indonesia dalam Menghadapi Deforestasi dan Kerusakan Lingkungan: Tinjauan Literatur", "y": 2025, "c": 32, "u": "https://doi.org/10.62951/botani.v2i2.343"}, {"t": "STUDI KEARIFAN LOKAL PENGGUNAAN API PERSIAPAN LAHAN: STUDI KASUS DI HUTAN MAWAS, KALIMANTAN TENGAH", "y": 2011, "c": 30, "u": "https://doi.org/10.20886/jpsek.2011.8.3.211-230"}, {"t": "ANALISIS YURIDIS PENGRUSAKAN HUTAN (DEFORESTASI) DAN DEGRADASI HUTAN TERHADAP LINGKUNGAN", "y": 2016, "c": 29, "u": "https://doi.org/10.24252/jurisprudentie.v3i1.3622"}, {"t": "Pencegahan dan Penanggulangan Kebakaran Lahan Gambut dan Hutan", "y": 2023, "c": 28, "u": "https://doi.org/10.14710/jil.21.1.132-142"}]}, "nepotisme_dinasti": {"n": 150, "cit": 710, "year": {"2002": 1, "2013": 2, "2014": 2, "2016": 2, "2017": 3, "2018": 4, "2019": 3, "2020": 10, "2021": 6, "2022": 13, "2023": 17, "2024": 33, "2025": 40, "2026": 14}, "type": {"article": 138, "dissertation": 8, "preprint": 1, "conference-paper": 1, "book": 1, "review": 1}, "words": [["politik", 122], ["dinasti", 89], ["demokrasi", 35], ["nepotisme", 18], ["masa", 17], ["daerah", 17], ["pemilihan", 16], ["kepala", 16], ["sistem", 12], ["desa", 11], ["islam", 11], ["hukum", 11], ["kepemimpinan", 10], ["jokowi", 9], ["partai", 9]], "top": [{"t": "Revivalisme Kekuatan Familisme dalam Demokrasi: Dinasti Politik di Aras Lokal", "y": 2013, "c": 57, "u": "https://doi.org/10.7454/mjs.v18i2.1234"}, {"t": "Tinjauan Kritis Politik Dinasti di Indonesia", "y": 2020, "c": 52, "u": "https://doi.org/10.30656/sawala.v8i2.2844"}, {"t": "PEMILIHAN LANGSUNG KEPALA DAERAH DI INDONESIA: BEBERAPA CATATAN KRITIS UNTUK PARTAI POLITIK", "y": 2014, "c": 42, "u": "https://ejournal.brin.go.id/jpp/article/download/10924/8573"}, {"t": "PARTAI POLITIK, FENOMENA DINASTI POLITIK DALAM PEMILIHAN KEPALA DAERAH, DAN DESENTRALISASI", "y": 2016, "c": 38, "u": "https://doi.org/10.26905/pjiap.v1i2.436"}, {"t": "Gejala Proliferasi Dinasti Politik di Banten Era Kepemimpinan Gubernur Ratu Atut Chosiyah", "y": 2017, "c": 37, "u": "https://doi.org/10.15294/jpi.v2i2.9329"}, {"t": "POLITIK DINASTI DALAM PERSPEKTIF DEMOKRASI", "y": 2022, "c": 35, "u": "https://doi.org/10.25157/moderat.v8i1.2596"}, {"t": "Dinasti Politik pada Pemerintahan di Tingkat Lokal", "y": 2019, "c": 18, "u": "https://doi.org/10.31629/kemudi.v4i1.1333"}, {"t": "Praktek Kolusi dan Nepotisme Dalam Birokrasi", "y": 2022, "c": 18, "u": "https://doi.org/10.55100/paradigma.v1i2.48"}, {"t": "Refleksi Putusan Mahkamah Konstitusi pada Pemilihan Presiden Tahun 2024 Terhadap Politik dan Demokrasi Indonesia", "y": 2024, "c": 18, "u": "https://doi.org/10.15575/qanuniya.v1i1.826"}, {"t": "ANALISIS LARANGAN RANGKAP JABATAN MENTERI YANG BERASAL DARI UNSUR PARTAI POLITIK DALAM SISTEM KETATANEGARAAN INDONESIA", "y": 2021, "c": 18, "u": "https://doi.org/10.22219/ilrej.v1i1.16127"}]}, "mbg_apbn": {"n": 150, "cit": 367, "year": {"2024": 5, "2025": 38, "2026": 107}, "type": {"article": 143, "dissertation": 5, "book": 1, "review": 1}, "words": [["gratis", 124], ["bergizi", 121], ["makan", 117], ["program", 107], ["mbg", 45], ["kebijakan", 29], ["implementasi", 17], ["sosial", 14], ["sentimen", 14], ["publik", 14], ["media", 13], ["anggaran", 12], ["free", 12], ["pemerintah", 11], ["pendidikan", 11]], "top": [{"t": "Efektivitas dan Tantangan Kebijakan Program Makan Bergizi Gratis sebagai Intervensi Pendidikan di Indonesia", "y": 2025, "c": 98, "u": "https://doi.org/10.33578/kpd.v4i3.p362-368"}, {"t": "MPLEMENTASI KEBIJAKAN MAKAN BERGIZI GRATIS (MBG)(STUDI KASUS PADA SDN 3 KEPANJEN KABUPATEN MALANG", "y": 2025, "c": 34, "u": "https://doi.org/10.14710/dialogue.v7i1.26628"}, {"t": "Policy Spillover: Analisis Jaringan Dampak Kebijakan Makan Siang Bergizi Gratis terhadap Sektor Pertanian", "y": 2024, "c": 28, "u": "https://doi.org/10.52316/jap.v20i2.435"}, {"t": "Penerapan Nilai Pancasila Melalui Program Makan Bergizi Gratis", "y": 2024, "c": 20, "u": "https://doi.org/10.57235/ijedr.v3i1.4684"}, {"t": "Implikasi Yuridis Perpres Nomor 83 Tahun 2024 terhadap Tata Kelola Program Makan Bergizi Gratis", "y": 2025, "c": 14, "u": "https://doi.org/10.30863/ekspose.v24i2.10485"}, {"t": "Implementasi Program Makan Bergizi Gratis dalam Meningkatkan Ketahanan Gizi Pelajar di Indonesia", "y": 2026, "c": 13, "u": "https://doi.org/10.31004/riggs.v4i4.5365"}, {"t": "Formulasi Kebijakan Pemerintah Tentang Program Makan Bergizi Gratis di Indonesia", "y": 2025, "c": 12, "u": "https://doi.org/10.38035/rrj.v8i1.1906"}, {"t": "Implementasi Program Makan Bergizi Gratis Pada Pemerintahan Prabowo-Gibran: Solusi dan Tantangan", "y": 2025, "c": 11, "u": "https://doi.org/10.33506/jn.v11i2.4352"}, {"t": "ANALISIS EFISIENSI APBN ERA PRABOWO: KAJIAN EKONOMI DAN ANALISIS SENTIMEN PUBLIK", "y": 2025, "c": 11, "u": "https://doi.org/10.36778/jesya.v8i2.2054"}, {"t": "Program Makan Bergizi Gratis (MBG) Dalam Perspektif Konstitusionalisme", "y": 2025, "c": 10, "u": "https://doi.org/10.24967/jcs.v10i2.4576"}]}}, "extra": {"sumber": {"n": 500, "year": {"1998": 1, "2000": 1, "2001": 1, "2003": 2, "2006": 1, "2007": 1, "2008": 1, "2009": 1, "2011": 2, "2012": 3, "2013": 3, "2014": 4, "2015": 5, "2016": 19, "2017": 21, "2018": 24, "2019": 42, "2020": 34, "2021": 60, "2022": 68, "2023": 41, "2024": 76, "2025": 43, "2026": 46}, "type": {"article": 448, "dissertation": 25, "preprint": 13, "conference-paper": 8, "other": 3, "book": 2, "book-chapter": 1}}, "jurnal": {"n": 50, "oa": 48}, "buku": {"n": 50, "cit": 289}}};const INLINE_F={"enf": [{"l": "Kemenhut, 15 Agu", "v": 0}, {"l": "Bareskrim, 30 Sep", "v": 4}, {"l": "Bareskrim, 29 Okt", "v": 20}, {"l": "Kemenhut Gakkum, 31 Okt", "v": 2}], "facts": [{"t": "k", "d": "2026-09-10", "w": "Kementerian Kehutanan (dikutip Mongabay)", "s": "Luas karhutla mencapai lebih dari 202.000 hektare di 340 kabupaten pada 36 provinsi sampai Agustus 2026.", "u": "https://mongabay.co.id/2026/09/10/ratusan-orang-tersangka-karhutla-bagaimana-penegakan-hukum-korporasi/"}, {"t": "k", "d": "2026-08-18", "w": "Walhi (dikutip Katadata)", "s": "Pada 1 Januari sampai 27 Juli 2026, lebih dari 70 persen titik panas di Kalimantan berada di dalam area konsesi perusahaan.", "u": "https://katadata.co.id/ekonomi-hijau/ekonomi-sirkular/6a8459cc49f89/kemenhut-tetapkan-29-tersangka-kebakaran-hutan-2026-tak-ada-dari-korporasi"}, {"t": "k", "d": "2026-09-04", "w": "Kementerian Lingkungan Hidup (dikutip Katadata)", "s": "Sekitar 85 ribu hektare konsesi di Sumatra dan Kalimantan terbakar. Sekitar 335 pemilik konsesi terindikasi memiliki titik api.", "u": "https://katadata.co.id/berita/nasional/6a9ab10934606/kepolisian-bidik-korporasi-sawit-diduga-sengaja-bakar-lahan-sumatra-kalimantan"}, {"t": "k", "d": "2026-08-30", "w": "Polda Riau (dikutip Mongabay)", "s": "Polda Riau menetapkan 40 tersangka untuk 904 hektare lahan terbakar. Seluruh tersangka adalah perorangan, belum ada perusahaan.", "u": "https://mongabay.co.id/2026/08/30/kasus-karhutla-riau-jerat-puluhan-tersangka-perorangan-bagaimana-perusahaan/amp/"}, {"t": "k", "d": "2026-08-21", "w": "Bareskrim Polri dan KLH (dikutip Katadata)", "s": "Pada 1 Januari sampai 21 Agustus 2026, Bareskrim menetapkan 72 tersangka perorangan. KLH menyatakan korporasi tetap dapat dimintai pertanggungjawaban meski kebakaran tidak disengaja.", "u": "https://katadata.co.id/ekonomi-hijau/ekonomi-sirkular/6a8c61be34b70/klh-korporasi-bisa-dimintai-tanggung-jawab-atas-karhutla-meski-tak-sengaja"}, {"t": "k", "d": "2026-10-01", "w": "Bareskrim Polri (dikutip iNews)", "s": "Sampai 30 September 2026 ada 341 laporan polisi karhutla, dan empat korporasi berstatus tersangka.", "u": "https://www.rctiplus.com/news/detail/inews/5485111/4-korporasi-jadi-tersangka-karhutla--siapa-saja-dan-apa-perannya-"}, {"t": "k", "d": "2026-10-29", "w": "Bareskrim Polri (dikutip Katadata)", "s": "Bareskrim mengumumkan 20 perusahaan tersangka karhutla, empat di antaranya berstatus modal asing. Modus yang disebut: membuka lahan dengan membakar, baik sengaja maupun lalai.", "u": "https://katadata.co.id/berita/nasional/6ae3056c011da/polri-umumkan-20-perusahaan-tersangka-karhutla-empat-berstatus-modal-asing"}, {"t": "k", "d": "2026-10-31", "w": "Ditjen Gakkum Kehutanan (dikutip Katadata)", "s": "Kemenhut menetapkan dua korporasi di Kalimantan sebagai tersangka dan menjatuhkan sanksi administratif kepada 32 korporasi. Penyidikan salah satunya mencakup kebakaran 2025 dan 2026 seluas 901,4 hektare.", "u": "https://katadata.co.id/berita/nasional/6ae57cb32e1e7/kemenhut-tetapkan-2-korporasi-di-kalimantan-tersangka-kasus-kebakaran-hutan"}, {"t": "k", "d": "2026-08-30", "w": "Perusahaan (dikutip Mongabay)", "s": "APRIL Group menyatakan perusahaan dan mitra pemasok mematuhi regulasi karhutla. TMP menyatakan kebakaran terjadi di luar HGU. Satu perusahaan lain menyatakan konsesi terbakar sudah diserahkan ke negara sejak 2022.", "u": "https://mongabay.co.id/2026/08/30/kasus-karhutla-riau-jerat-puluhan-tersangka-perorangan-bagaimana-perusahaan/amp/"}, {"t": "k", "d": "2026-09-29", "w": "Kementerian Kehutanan (dikutip Katadata)", "s": "Temuan sementara Kemenhut atas kebakaran berulang di konsesi: ada lahan berstatus konflik dan konsesi “mati suri” tanpa kegiatan sehingga tidak ada pemadaman.", "u": "https://katadata.co.id/amp/ekonomi-hijau/investasi-hijau/6abbb602999ff/karhutla-berulang-di-area-konsesi-apa-temuan-kemenhut"}, {"t": "k", "d": "2026-08-25", "w": "Kementerian Kehutanan (dikutip Katadata)", "s": "Di Suaka Margasatwa Bukit Rimbang Baling, Riau, tiga tersangka ditetapkan atas pembakaran untuk pembukaan lahan dan jual-beli lahan dalam kawasan hutan.", "u": "https://katadata.co.id/berita/nasional/6a8d1d0ad7434/kemenhut-usut-karhutla-temukan-dugaan-jual-beli-kawasan-hingga-perambahan"}, {"t": "k", "d": "2026-08", "w": "Pemerintah Provinsi Riau (dikutip Katadata)", "s": "Luas kebakaran di Riau turun dari sekitar 16.000 hektare menjadi sekitar 900 hektare pada Januari sampai Agustus 2026.", "u": "https://katadata.co.id/ekonomi-hijau/ekonomi-sirkular/6a8c61be34b70/klh-korporasi-bisa-dimintai-tanggung-jawab-atas-karhutla-meski-tak-sengaja"}, {"t": "k", "d": "2026-09-10", "w": "Greenpeace Indonesia (dikutip Mongabay)", "s": "Greenpeace menyatakan jumlah tersangka perorangan tidak bisa menjadi satu-satunya tolok ukur keberhasilan penegakan hukum.", "u": "https://mongabay.co.id/2026/09/10/ratusan-orang-tersangka-karhutla-bagaimana-penegakan-hukum-korporasi/"}, {"t": "p", "d": "2023", "w": "Mahkamah Konstitusi (dikutip Jawa Pos)", "s": "Putusan MK No. 90/PUU-XXI/2023 mengubah batas usia capres-cawapres. Gibran Rakabuming Raka memperoleh tiket pencalonan melalui putusan ini.", "u": "https://www.jawapos.com/nasional/2506090191/sebut-pemakzulan-wapres-gibran-mustahil-terjadi-eks-ketua-mk-jimly-asshiddiqie-sudah-tiga-partai-tolak-pemakzulan"}, {"t": "p", "d": "2025-06", "w": "Surat usulan pemakzulan ke DPR (dikutip Bisnis.com)", "s": "Surat itu menyatakan Anwar Usman, ketua majelis putusan 90 sekaligus paman Gibran, dinyatakan melanggar kode etik hakim, dan menilai putusan 90 cacat hukum.", "u": "https://kabar24.bisnis.com/read/20250603/15/1882258/ini-isi-surat-usulan-pemakzulan-gibran-yang-resmi-diterima-dpr/2"}, {"t": "p", "d": "2024-04-22", "w": "Mahkamah Konstitusi (dikutip Kompas.id)", "s": "MK menilai pencalonan Gibran sah dan menyatakan intervensi presiden tidak terbukti.", "u": "https://www.kompas.id/baca/english/2024/04/22/en-mk-nilai-pencalonan-gibran-sah-intervensi-presiden-tak-terbukti"}, {"t": "p", "d": "2025-06-03", "w": "Forum Purnawirawan TNI (dikutip detikNews)", "s": "Forum Purnawirawan TNI mengirim surat ke MPR dan DPR agar pemakzulan Gibran diproses. Surat itu menyatakan putusan MK 90 final dan mengikat.", "u": "https://news.detik.com/berita/d-7947240/forum-purnawirawan-tni-minta-pemakzulan-gibran-putusan-mk-final-dan-mengikat"}, {"t": "p", "d": "2026-10-06", "w": "Mahkamah Konstitusi (dikutip InvestorTrust)", "s": "MK membacakan putusan terkait syarat pendidikan Gibran. Putusan itu tidak memerintahkan DPR memulai pemakzulan, tidak memerintahkan sidang istimewa MPR, dan tidak memberhentikan Gibran.", "u": "https://investortrust.id/national/118550/putusan-ijazah-mk-buka-isu-pemakzulan"}, {"t": "p", "d": "2026-11-10", "w": "Istana (dikutip Antara)", "s": "Istana membenarkan Gibran mengajukan niat mundur dari jabatan Wakil Presiden kepada Presiden Prabowo.", "u": "https://www.antaranews.com/berita/5844027/istana-wapres-gibran-ajukan-niatan-untuk-mundur-kepada-prabowo"}, {"t": "d", "d": "2026-06-12", "w": "BEM UI (dikutip Katadata)", "s": "Aksi #Indonesiamenujubangkrut membawa lima tuntutan, antara lain menghentikan pemborosan APBN, menurunkan harga kebutuhan pokok dan BBM, serta menghentikan MBG dan Koperasi Desa Merah Putih.", "u": "https://katadata.co.id/amp/lifestyle/varia/6a2b718d3bbb0/5-tuntutan-demo-hari-ini-hentikan-mbg-dan-koperasi-desa-merahputih"}, {"t": "d", "d": "2026-08-18", "w": "BEM UI (dikutip InfobankNews)", "s": "Aksi di Bundaran HI membawa delapan tuntutan tentang ekonomi, korupsi, reforma agraria, kebijakan pemerintah, dan keterlibatan aparat di ruang sipil.", "u": "https://infobanknews.com/demo-mahasiswa-hari-ini-usung-8-tuntutan-berikut-titik-aksinya"}, {"t": "d", "d": "2026-10-28", "w": "Mahasiswa Bandung (dikutip JPNN)", "s": "Demo di DPRD Jawa Barat menyoroti kebakaran hutan dan lahan serta program MBG. Pada hari yang sama BEM UI dan Komite Sadar berdemo di Bundaran HI dengan lima tuntutan.", "u": "https://www.jpnn.com/news/demo-saat-hari-sumpah-pemuda-mahasiswa-bandung-bawa-3-tuntutan-penting"}, {"t": "d", "d": "2026-11-10", "w": "Mahasiswa Surabaya (dikutip Jawa Pos)", "s": "Mahasiswa di Surabaya membawa empat tuntutan, salah satunya pengunduran diri Prabowo dan Gibran.", "u": "https://www.jawapos.com/surabaya-raya/2611100384/hari-pahlawan-mahasiswa-surabaya-demo-sampaikan-4-tuntutan"}, {"t": "d", "d": "2026-11-10", "w": "Mahasiswa ITS dan Unair; Menko Polkam (dikutip AFU)", "s": "ITS dan Unair membawa 17 tuntutan, dari Lapindo sampai MBG dan pajak yang berkeadilan. Daftar itu tidak memuat tuntutan agar Prabowo atau Gibran mundur. Menko Polkam menyatakan aksi 10 November bukan unjuk rasa besar-besaran.", "u": "https://afu.id/nusantara/demo-besok-mahasiswa-its-dan-unair-turun-ke-jalan-bawa-17-tuntutan-dari-lapindo-hingga-mbg"}, {"t": "d", "d": "2026-11-09", "w": "Pemerintah (dikutip AFU)", "s": "Pemungutan pajak digital oleh pemerintah mulai berlaku pada 9 November 2026.", "u": "https://afu.id/nusantara/demo-besok-mahasiswa-its-dan-unair-turun-ke-jalan-bawa-17-tuntutan-dari-lapindo-hingga-mbg"}, {"t": "d", "d": "2026-11-11", "w": "GMNI Kota Bogor (dikutip Radar Bogor)", "s": "GMNI Kota Bogor berdemo pada 11 November 2026 dan menyoroti kasus dugaan penyadapan Presiden.", "u": "https://radarbogor.jawapos.com/kota-bogor/2611110086/demo-mahasiswa-di-kota-bogor-gmni-soroti-kasus-dugaan-penyadapan-presiden"}, {"t": "d", "d": "2026-11-11", "w": "Ketua DPRD Madiun (dikutip BeritaJatim)", "s": "Ketua DPRD Madiun berjanji mengirim tujuh tuntutan mahasiswa ke Istana.", "u": "https://beritajatim.com/demo-mahasiswa-madiun-ketua-dprd-janji-kirim-7-tuntutan-ke-istana"}, {"t": "p", "d": "2026-11-11", "w": "Alumni 212 (dikutip Okezone)", "s": "Alumni 212 menyatakan siap menggelar aksi berjilid-jilid untuk mendesak pemakzulan Gibran dan mengawal kasus dugaan penyadapan terhadap Presiden.", "u": "https://news.okezone.com/read/2026/11/11/337/3253340/alumni-212-siap-gelar-aksi-berjilid-jilid-desak-pemakzulan-gibran"}, {"t": "g", "d": "2026-03-28", "w": "Komdigi (dikutip Bisnis.com)", "s": "PP Tunas berlaku efektif sejak 28 Maret 2026. Pada tahap awal, Komdigi meminta delapan platform berisiko tinggi menunda akses akun anak di bawah 16 tahun.", "u": "https://teknologi.bisnis.com/read/20260416/101/1967078/komdigi-tegaskan-pp-tunas-berlaku-lintas-platform-bukan-hanya-media-sosial"}, {"t": "g", "d": "2026-04-09", "w": "Komdigi (dikutip Selular.ID)", "s": "Komdigi menjatuhkan teguran tertulis kepada Google karena dinilai belum memenuhi kewajiban PP Tunas, khususnya pembatasan akses anak.", "u": "https://selular.id/2026/04/dalam-3-bulan-platform-media-sosial-dan-gim-wajib-patuhi-pp-tunas/"}, {"t": "g", "d": "2026-09-14", "w": "Komdigi (dikutip Katadata)", "s": "Setelah enam bulan, Komdigi menilai X hingga TikTok belum patuh pada PP Tunas. Per 6 September 2026 pemerintah sudah menetapkan dan memverifikasi 60 platform berdasarkan profil risikonya.", "u": "https://katadata.co.id/digital/teknologi/6aa7b1554885e/pp-tunas-sudah-berlaku-enam-bulan-komdigi-menilai-x-hingga-tiktok-belum-patuh"}]};
-const $=s=>document.querySelector(s);
-const COL={karhutla_konsesi:'#4fc3a1',nepotisme_dinasti:'#9a8cff',mbg_apbn:'#f0a04b'};
-const NAME={karhutla_konsesi:'Karhutla dan konsesi',nepotisme_dinasti:'Nepotisme dan dinasti politik',mbg_apbn:'MBG dan APBN'};
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const cut=(s,n=46)=>s.length>n?s.slice(0,n-1)+'…':s,nf=n=>n.toLocaleString('id-ID');
-const base={responsive:true,maintainAspectRatio:false},ch={};
-Chart.defaults.font.family='"DM Sans",system-ui,sans-serif';Chart.defaults.color='#d8c3c7';Chart.defaults.borderColor='rgba(255,255,255,.1)';
-const draw=(id,c)=>{ch[id]&&ch[id].destroy();ch[id]=new Chart($('#'+id),c)};
-const bar=(id,l,d,col,h,n)=>draw(id,{type:'bar',data:{labels:l,datasets:[{label:n,data:d,backgroundColor:col,borderColor:'#0a0507',borderWidth:2}]},options:{...base,indexAxis:h?'y':'x',plugins:{legend:{display:false}},scales:{[h?'x':'y']:{beginAtZero:true,ticks:{precision:0}}}}});
-const topOf=o=>Object.entries(o).sort((a,b)=>b[1]-a[1])[0];
-const STAT=[['202.000+','hektare terbakar sampai Agustus 2026. Itu data Kemenhut, bukan perasaan kita.'],['335','pemilik konsesi terindikasi punya titik api (KLH). Titik api, bukan vonis.'],['70%+','titik panas Kalimantan (1 Jan–27 Jul) ada di dalam konsesi perusahaan (Walhi).'],['72 → 20','21 Agustus: 72 tersangka perorangan. 29 Oktober: 20 perusahaan tersangka. Urutannya bicara sendiri.'],['17','tuntutan mahasiswa ITS dan Unair, 10 Nov. Dari Lapindo sampai MBG.'],['10 Nov','Istana benarkan Gibran menyampaikan niat mundur. Niat, belum tentu final.'],['60','platform diverifikasi di PP Tunas (6 Sep)'],['72','tersangka karhutla perorangan, s.d. 21 Agu (Bareskrim)']];
-$('#st').innerHTML=STAT.slice(0,6).map(s=>'<div><b>'+s[0]+'</b>'+s[1]+'</div>').join('');
-const Q=[['Sampai Agustus 2026, karhutla tercatat lebih dari 202.000 hektare.',1,'Benar. Kemenhut mencatat 202.000+ hektare di 340 kabupaten.'],
-['Semua tersangka karhutla di Riau pada 2026 adalah perusahaan.',0,'Salah. Per 30 Agustus, 40 tersangka Polda Riau semuanya perorangan.'],
-['Putusan MK 6 Oktober 2026 langsung memberhentikan Gibran.',0,'Salah. Putusan itu tidak memberhentikan Gibran dan tidak memerintahkan DPR memulai pemakzulan.'],
-['Daftar 17 tuntutan ITS dan Unair memuat tuntutan agar Prabowo dan Gibran mundur.',0,'Salah. Daftar itu tidak memuat tuntutan mundur. Tuntutan mundur datang dari kelompok lain di Surabaya.'],
-['Pada 29 Oktober 2026 Bareskrim mengumumkan 20 perusahaan tersangka karhutla.',1,'Benar. Empat di antaranya berstatus modal asing.'],
-['Ada sumber di halaman ini yang menyebut pemilik akhir perusahaan yang untung dari karhutla.',0,'Salah. Tidak ada. Itu sebabnya halaman ini tidak menyebut nama.'],
-['Pemungutan pajak digital mulai berlaku pada 9 November 2026.',1,'Benar, menurut laporan AFU tentang tuntutan ITS dan Unair.']];
-let qi=0,sc=0;
-function quiz(){const q=$('#q');
- if(qi>=Q.length){const r=sc<3?'NPC berita 🤖':sc<6?'Anak timeline 📱':'Detektif fakta 🕵️';q.innerHTML='<h3>Skor '+sc+'/'+Q.length+': '+r+'</h3><button id="rs">Main lagi</button>';$('#rs').onclick=()=>{qi=sc=0;quiz()};return}
- q.innerHTML='<small>Soal '+(qi+1)+'/'+Q.length+'</small><h3>'+Q[qi][0]+'</h3><div class="row"><button data-a="1">Fakta ✅</button><button data-a="0">Hoaks ❌</button></div><p id="ex"></p>';
- q.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const ok=+b.dataset.a===Q[qi][1];sc+=ok?1:0;q.querySelectorAll('[data-a]').forEach(x=>x.disabled=true);
-  $('#ex').innerHTML=(ok?'Tepat! ':'Belum tepat. ')+Q[qi][2]+' <button id="nx">Lanjut</button>';$('#nx').onclick=()=>{qi++;quiz()}})}
-quiz();
-const KAM=[['Karhutla','Singkatan dari kebakaran hutan dan lahan.'],['Konsesi','Izin pemerintah bagi perusahaan untuk mengelola kawasan tertentu, misalnya hutan atau perkebunan.'],['PBPH','Perizinan Berusaha Pemanfaatan Hutan: izin usaha untuk memanfaatkan kawasan hutan.'],['HGU','Hak Guna Usaha: hak mengusahakan tanah negara untuk usaha seperti perkebunan.'],['Titik panas (hotspot)','Titik di peta satelit dengan suhu permukaan tinggi. Itu indikasi, belum tentu semuanya kebakaran yang sudah terkonfirmasi.'],['Putusan MK 90','Putusan MK No. 90/PUU-XXI/2023 yang mengubah batas usia calon presiden dan wakil presiden.'],['Dinasti politik','Kekuasaan politik yang dipegang atau diwariskan dalam satu keluarga.'],['Nepotisme','Mengutamakan keluarga atau kerabat dalam jabatan atau keputusan.'],['Pemakzulan','Proses konstitusional memberhentikan presiden atau wakil presiden dalam masa jabatan. Prosesnya melibatkan DPR, MK, dan MPR.'],['MBG dan APBN','MBG adalah Makan Bergizi Gratis, program pemerintah. APBN adalah anggaran pendapatan dan belanja negara.'],['PP Tunas','PP No. 17 Tahun 2025 tentang tata kelola penyelenggaraan sistem elektronik dalam pelindungan anak.']];
-$('#kam').innerHTML=KAM.map(k=>'<details><summary>'+k[0]+'</summary>'+k[1]+'</details>').join('');
-$('#tips').innerHTML=['<b>Cek tanggal</b>Berita lama sering beredar lagi seolah baru.','<b>Cek siapa yang ngomong</b>Pernyataan LSM, polisi, dan perusahaan itu pihak yang berbeda.','<b>Buka linknya</b>Screenshot bisa dipotong. Sumber asli tidak.','<b>Tersangka ≠ bersalah</b>Terbukti bersalah baru setelah putusan pengadilan.'].map(t=>'<div>'+t+'</div>').join('');
-Promise.all([Promise.resolve(INLINE_D),Promise.resolve(INLINE_F)]).then(([D,F])=>{
- const K=Object.keys(D.topics),T=D.topics,X=D.extra;
- $('#scope').textContent='Data: '+K.map(k=>NAME[k]+' ('+T[k].n+' publikasi)').join(', ')+'; plus '+X.sumber.n+' sumber karhutla, '+X.jurnal.n+' jurnal ('+X.jurnal.oa+' akses terbuka), dan '+X.buku.n+' buku terbuka.';
- const yrs=[...new Set(K.flatMap(k=>Object.keys(T[k].year)))].sort();
- draw('c1',{type:'line',data:{labels:yrs,datasets:K.map(k=>({label:NAME[k],data:yrs.map(y=>T[k].year[y]||0),borderColor:COL[k],backgroundColor:COL[k],borderWidth:3,tension:.2}))},options:{...base,scales:{y:{beginAtZero:true,title:{display:true,text:'Jumlah publikasi'}}}}});
- $('#n1').textContent=K.map(k=>{const[y,n]=topOf(T[k].year);return NAME[k]+': terbanyak '+y+' ('+n+' publikasi), total sitasi '+nf(T[k].cit)+'.'}).join(' ')+' Tiap topik berisi 150 data.';
- const sy=X.sumber.year,ty=X.sumber.type;bar('c2',Object.keys(sy),Object.values(sy),COL.karhutla_konsesi,false,'Sumber');
- draw('c3',{type:'doughnut',data:{labels:Object.keys(ty),datasets:[{data:Object.values(ty),backgroundColor:['#12a05c','#3d5afe','#ff9f1c','#c2344d','#4db8ff','#c6f432','#7a738f'],borderColor:'#0a0507',borderWidth:2}]},options:{...base,plugins:{legend:{position:'bottom'}}}});
- const a=topOf(sy),b=topOf(ty);$('#n2').textContent='Dari '+X.sumber.n+' sumber, tahun terbanyak adalah '+a[0]+' ('+a[1]+' sumber). Jenis dokumen terbanyak adalah '+b[0]+' ('+b[1]+' sumber).';
- const o=K.map(k=>'<option value="'+k+'">'+NAME[k]+'</option>').join('');$('#s4').innerHTML=o;$('#s5').innerHTML=o;
- const r4=()=>{const k=$('#s4').value,t=T[k].top;bar('c4',t.map((x,i)=>(i+1)+'. '+cut(x.t)),t.map(x=>x.c),COL[k],true,'Sitasi');
-  $('#l4').innerHTML=t.map(x=>'<li><a href="'+esc(x.u)+'" rel="noopener">'+esc(x.t)+'</a> ('+x.y+', '+x.c+' sitasi)</li>').join('')};
- const r5=()=>{const k=$('#s5').value,w=T[k].words;bar('c5',w.map(x=>x[0]),w.map(x=>x[1]),COL[k],true,'Judul')};
- $('#s4').onchange=r4;$('#s5').onchange=r5;r4();r5();
- bar('c6',F.enf.map(e=>e.l),F.enf.map(e=>e.v),'#c2344d',false,'Korporasi tersangka');
- const TAB=[['all','Semua'],['k','🔥 Karhutla'],['p','⚖️ MK dan politik'],['d','📣 Demo dan kebijakan'],['g','📱 Dunia digital']],EM={k:'🔥',p:'⚖️',d:'📣',g:'📱'};let cur='all',n=8;
- const show=()=>{const L=F.facts.filter(f=>cur==='all'||f.t===cur).sort((x,y)=>y.d.localeCompare(x.d));
-  $('#tabs').innerHTML=TAB.map(([v,l])=>'<button aria-pressed="'+(v===cur)+'" data-v="'+v+'">'+l+'</button>').join('');
-  $('#facts').innerHTML=L.slice(0,n).map(f=>'<article class="'+f.t+'"><small>'+EM[f.t]+' '+esc(f.d)+' | '+esc(f.w)+'</small>'+esc(f.s)+' <a href="'+esc(f.u)+'" rel="noopener">Sumber</a></article>').join('');
-  $('#more').hidden=n>=L.length;
-  document.querySelectorAll('#tabs button').forEach(x=>x.onclick=()=>{cur=x.dataset.v;n=8;show()})};
- $('#more').onclick=()=>{n+=8;show()};show();
-}).catch(()=>{$('#err').hidden=false});
+        function renderData(filter) {
+            const container = document.getElementById('content-area');
+            container.innerHTML = '';
 
-(()=>{const c=$('#stars'),g=c.getContext('2d'),R=matchMedia('(prefers-reduced-motion:reduce)').matches;let S=[];
-const rs=()=>{c.width=innerWidth;c.height=innerHeight;S=Array.from({length:Math.round(innerWidth/8)},()=>({x:Math.random()*c.width,y:Math.random()*c.height*.8,r:Math.random()*1.3+.3,p:Math.random()*6}))};
-const tk=t=>{g.clearRect(0,0,c.width,c.height);S.forEach(s=>{g.globalAlpha=.2+.6*Math.abs(Math.sin(t/1600+s.p));g.fillStyle='#ffe9ec';g.beginPath();g.arc(s.x,s.y,s.r,0,7);g.fill()});if(!R)requestAnimationFrame(tk)};
-addEventListener('resize',rs);rs();requestAnimationFrame(tk);
-const nl=$('#nl');$('#mb').onclick=()=>nl.classList.toggle('open');nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));
-const mp=$('#mp'),mt=$('#mt');mt.onclick=()=>mt.setAttribute('aria-expanded',mp.classList.toggle('open'));
-const M=document.querySelectorAll('.mood-choice');M.forEach(b=>b.onclick=()=>{document.body.dataset.mood=b.dataset.m;M.forEach(x=>x.setAttribute('aria-pressed',x===b))})})();
-</script></body></html>
+            let itemsToRender = [];
+            if (filter === 'all') {
+                for (let category in webData) {
+                    itemsToRender = itemsToRender.concat(webData[category]);
+                }
+            } else {
+                itemsToRender = webData[filter] || [];
+            }
+
+            if (itemsToRender.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><p class="text-muted">Tidak ada data tersedia.</p></div>';
+                return;
+            }
+
+            itemsToRender.forEach(item => {
+                const cardHtml = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title fw-bold text-dark">${item.title}</h6>
+                                <p class="text-muted small mb-2">Tahun: ${item.year || '-'} | Sitasi: ${item.citations}</p>
+                                <div class="mb-3">
+                                    <span class="badge badge-type text-uppercase small">${item.type || 'Article'}</span>
+                                </div>
+                                <div class="mt-auto">
+                                    ${item.url ? `<a href="${item.url}" target="_blank" class="btn btn-outline-success btn-sm w-100">Baca/Unduh Gratis</a>` : '<span class="text-danger">Link Tidak Tersedia</span>'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+        }
+
+        function filterTopic(topic) {
+            renderData(topic);
+        }
+    </script>
+</body>
+</html>
