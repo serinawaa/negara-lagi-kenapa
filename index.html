@@ -71,22 +71,97 @@ input[type=search]{font:inherit;border:1px solid var(--line);border-radius:24px;
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}.filters input{flex:1 1 220px}
 label.chk{display:inline-block;margin:0 18px 8px 0;cursor:pointer}
 #ll article .row{margin:10px 0 0}#ll .btn,#ll button{padding:6px 14px;font-size:.8rem}#ll button[aria-pressed=true]{color:var(--gold);border-color:var(--gold)}
+
+.splash{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#050204e6;backdrop-filter:blur(10px);padding:20px}.splash[hidden]{display:none}
+.splash .pad{max-width:440px;text-align:center}.splash h2{transform:none;margin:8px 0}.splash .btn{margin:6px}
+.lyric{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));z-index:9;display:flex;align-items:center;gap:16px;padding:10px 20px;margin-top:14px}
+.lyric small{display:block;color:var(--gold);font-weight:700;font-size:.75rem}.lyl{font:600 1.05rem var(--serif)}
+.eq{display:flex;align-items:flex-end;gap:3px;height:30px}.eq i{width:5px;height:30%;background:var(--acc2);border-radius:3px}
+.playing .eq i{animation:eqb .8s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.1s}.eq i:nth-child(5){animation-delay:.25s}.eq i:nth-child(6){animation-delay:.4s}
+@keyframes eqb{to{height:100%}}
+.player{position:fixed;left:16px;bottom:16px;z-index:30;width:200px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--glass);backdrop-filter:blur(12px)}
+.player iframe{display:block;width:100%;height:112px;border:0}.player.big{width:min(420px,calc(100vw - 32px))}.player.big iframe{height:236px}
+.pl-bar{display:flex;gap:6px;padding:6px}.pl-bar button{padding:4px 12px}
+#gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.ph{margin:0}.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;border:1px solid var(--line)}.ph figcaption{font-size:.8rem;color:var(--muted);margin-top:6px}
+.hand{display:flex;gap:20px;align-items:center;grid-column:1/-1}.hand svg{width:110px;flex:none}
+@media(max-width:580px){.player{bottom:84px;width:150px}.player iframe{height:84px}.lyric{top:64px}}
+
+.lyric>div:nth-child(2){flex:1;min-width:0}
+.lyl{font:700 clamp(1.15rem,3vw,1.75rem)/1.25 var(--serif);background:linear-gradient(90deg,var(--acc2) var(--p,0%),var(--ink) var(--p,0%));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lyl.in{animation:lin .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes lin{from{opacity:0;transform:translateY(14px) scale(.96);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.lyn{color:var(--muted);font-size:.85rem;min-height:1.2em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.strip{overflow:hidden;margin-top:14px;border-radius:22px;border:1px solid var(--line);background:var(--glass)}
+.strip-track{display:flex;gap:10px;width:max-content;padding:10px;animation:slide 70s linear infinite}.strip:hover .strip-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.strip figure{position:relative;margin:0;height:190px;flex:none}.strip img{height:100%;width:auto;display:block;border-radius:14px}
+.strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 8px 6px;font-size:.7rem;background:linear-gradient(transparent,#000c);border-radius:0 0 14px 14px}
+.emb{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start}.emb>*{max-width:100%!important}
+@media(max-width:580px){.strip figure{height:140px}}
+@media(prefers-reduced-motion:reduce){.strip{overflow-x:auto}.strip-track{animation:none}}
+
+.narasi p{max-width:68ch;font-size:1.05rem}.narasi p:first-child{font:600 1.5rem/1.3 var(--serif);color:var(--acc2)}.narasi p.small{font-size:.85rem}
+
+html{scroll-padding-top:190px}#fx{position:fixed;inset:0;z-index:-3;pointer-events:none}
+.off{display:none!important}@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.enter{animation:up .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0)*90ms)}
+.nav-links a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s}.nav-links a.on{color:var(--acc2);border-bottom-color:var(--acc2)}
+.sts>a{display:block;text-decoration:none;color:var(--muted);background:var(--glass);border:1px solid #ffffff14;outline:1px solid var(--line);outline-offset:-2px;border-radius:22px;padding:20px;font-size:.88rem;backdrop-filter:blur(14px);box-shadow:0 12px 40px #0008}
+.jalur{list-style:none;margin:0;padding:0 0 0 34px;position:relative}
+.jalur:before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--acc2),var(--acc),transparent)}
+.jalur li{position:relative;margin:0 0 18px;padding:16px 20px;background:var(--glass);border:1px solid #ffffff14;outline:1px solid var(--line);outline-offset:-2px;border-radius:22px;backdrop-filter:blur(14px);opacity:0;transform:translateX(-24px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .25s,outline-color .25s,background .25s}
+.jalur li.in{opacity:1;transform:none}
+.jalur li:before{content:"";position:absolute;left:-30px;top:22px;width:15px;height:15px;border-radius:50%;background:var(--acc2);box-shadow:0 0 0 4px var(--s1),0 0 14px var(--acc2)}
+.jalur li:last-child:before{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 4px var(--s1),0 0 0 12px #e0707f55}}
+.jalur time{color:var(--gold);font-weight:700;font-size:.8rem}.jalur h3{margin:2px 0 6px;font-size:1.15rem}.jalur p{margin:0 0 6px;color:var(--muted)}.jalur a{color:var(--acc2);font-weight:700}
+.sts>div,.sts>a,article,details,.ph{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,outline-color .25s,background .25s}
+.sts>div:hover,.sts>a:hover,article:hover,details:hover,.jalur li.in:hover{transform:translateY(-4px) scale(1.01);outline-color:#ff4d6a;background:color-mix(in srgb,#7a1427 60%,var(--glass));box-shadow:0 18px 46px #c2344d66}
+.ph img{transition:transform .35s,box-shadow .35s,filter .35s;cursor:zoom-in}.ph:hover img{transform:scale(1.04) rotate(-.6deg);box-shadow:0 0 0 3px #ff4d6a,0 20px 50px #c2344d88;filter:saturate(1.15)}
+.strip img{cursor:zoom-in;transition:transform .3s,filter .3s}.strip figure:hover img{transform:scale(1.05);filter:brightness(1.12)}
+.lb{position:fixed;inset:0;z-index:90;background:#050204ec;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:92vw;max-height:88vh;border-radius:16px;transform:scale(.94);transition:transform .35s cubic-bezier(.2,.8,.2,1)}.lb.open img{transform:none}
+.wxo{grid-template-columns:repeat(4,1fr)}.wx{padding:8px 4px;border-radius:14px;font-size:.72rem}.wx span{display:block;font-size:1.3rem}
+.wx[aria-pressed=true]{background:linear-gradient(135deg,var(--acc),#b5304a);border-color:transparent;color:#fff}
+.footer{padding:50px 0 120px}.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:28px}.fgrid b{display:block;color:var(--ink);margin-bottom:8px}.fgrid a{display:block;color:var(--muted);text-decoration:none;margin:4px 0;transition:.2s}.fgrid a:hover{color:var(--acc2);transform:translateX(4px)}.fgrid p{margin:6px 0;max-width:36ch}
+.fbot{display:flex;justify-content:space-between;gap:16px;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:.8rem}.fbot a{color:var(--acc2)}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr}}@media(max-width:580px){.fgrid{grid-template-columns:1fr}}
+
+html{scroll-padding-top:100px}.np{padding:6px 10px 0;font-size:.72rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.np span:first-child{color:var(--gold);font-weight:700}
+.pl-bar{justify-content:space-between}.pl-bar button{padding:4px 8px}
 </style></head>
 <body data-mood="maroon">
 <noscript><p style="padding:20px;background:#fff;color:#000">Halaman ini butuh JavaScript. Aktifkan JavaScript di browser kamu.</p></noscript>
-<div class="sky"><i></i><i></i><i></i></div><canvas id="stars" aria-hidden="true"></canvas>
+<div class="splash" id="splash" role="dialog" aria-modal="true" aria-labelledby="sph"><div class="glass pad"><span class="eyebrow">Sebelum masuk</span><h2 id="sph">Negara?</h2><p>Halaman ini memutar lagu latar. Browser hanya mengizinkan suara setelah kamu menekan tombol.</p><button id="enter" class="btn primary">Masuk dan putar lagu</button><button id="enterMute" class="btn">Masuk tanpa suara</button></div></div>
+<div class="sky"><i></i><i></i><i></i></div><canvas id="stars" aria-hidden="true"></canvas><canvas id="fx" aria-hidden="true"></canvas>
 <div class="moon" aria-hidden="true"><svg class="crack" viewBox="0 0 100 100"><path d="M64 3 L57 17 L66 29 L52 43 L61 57 L47 70 L52 83 L44 98 M66 29 L80 34 M52 43 L38 40"/></svg></div>
 <div class="sea" aria-hidden="true"><div class="wave one"></div><div class="wave two"></div></div>
 <header class="nav-wrap"><nav class="wrap" aria-label="Navigasi utama"><a class="brand" href="#top">Negara<span>?</span></a>
 <button class="menu-btn" id="mb" aria-label="Buka menu">Menu</button>
-<div class="nav-links" id="nl"><a href="#timeline">Timeline</a><a href="#kuis">Kuis</a><a href="#perpus">Perpustakaan</a><a href="#sains">Data sains</a><a href="#grafik">Grafik</a><a href="#kamus">Kamus</a><a href="#belum">Belum ada jawab</a></div></nav></header>
+<div class="nav-links" id="nl"><a href="#beranda">Beranda</a><a href="#timeline">Timeline</a><a href="#data">Data</a><a href="#perpus">Perpustakaan</a><a href="#galeri">Galeri</a><a href="#belajar">Belajar</a></div></nav></header>
 <main class="wrap" id="top">
-<section class="hero"><div class="hero-copy"><span class="eyebrow">Data sampai 12 November 2026</span>
+<section class="strip" id="strip" aria-label="Foto aksi mahasiswa" hidden><div class="strip-track" id="st2"></div></section>
+<section class="hero" id="hero"><div class="hero-copy"><span class="eyebrow">Data sampai 12 November 2026</span>
 <h1>Negara lagi <em>kenapa</em> sih?</h1>
 <p>Karhutla, demo, MK, MBG, pajak digital, sampai aturan medsos anak: semuanya numpuk di timeline kamu. Di sini dirapikan jadi angka, tanggal, dan link sumber. Boleh lucu, tapi enggak ngarang.</p>
 <div class="actions"><a class="btn primary" href="#timeline">Lihat timeline</a><a class="btn" href="#kuis">Main kuis</a></div>
 <p class="scroll-note">scroll untuk lanjut</p></div></section>
 <div class="sts" id="st"></div><p id="scope" class="small"></p><p id="err" hidden>Data gagal dimuat. Buka lewat GitHub Pages atau server lokal.</p>
+
+<div class="sts go" id="mulai"><a href="#timeline"><b>Timeline</b>Kronologi singkat dan fakta bersumber.</a><a href="#data"><b>Data</b>Grafik publikasi dan statistik sitasi.</a><a href="#perpus"><b>Perpustakaan</b>500 tulisan dan 50 buku terbuka.</a><a href="#galeri"><b>Galeri</b>Foto aksi berlisensi dan embed.</a><a href="#belajar"><b>Belajar</b>Kuis, kamus, dan cek fakta.</a></div>
+
+<section class="section" id="ajak-suara"><div class="section-head"><div><span class="eyebrow">Ajakan</span><h2>Suara kecil tetap suara</h2></div></div>
+<div class="glass pad narasi">
+<p>Kamu sudah baca angka, tanggal, dan sumbernya. Sekarang pertanyaannya: terus kita ngapain?</p>
+<p>Perubahan jarang datang dari ruangan yang sunyi. Kebijakan bergeser karena ada yang bertanya, ada yang menagih, dan ada yang tidak berhenti membicarakannya. Kalau semua orang berpikir "ah, cuma satu postingan, apa gunanya", maka tidak ada yang bersuara, dan keadaan tetap seperti sekarang.</p>
+<p>Bersuara tidak harus besar. Satu story, satu repost dengan sumber yang jelas, satu obrolan di grup keluarga, atau satu pesan ke wakil rakyat di daerahmu. Kecil, tapi kalau dilakukan banyak orang, ia jadi arus.</p>
+<p>Syaratnya sederhana: cek sumbernya sebelum membagikan, tulis dengan fakta, jangan menyebar data pribadi orang, dan jangan menghasut kekerasan. Suara yang asal sebar justru melemahkan hal yang benar.</p>
+<p>Soal rasa takut: lewat putusan 29 April 2025, MK menyatakan pasal pencemaran nama baik di UU ITE tidak berlaku untuk lembaga pemerintah, dan istilah "kerusuhan" di UU ITE hanya berlaku untuk ruang fisik. Tapi aturan lain seperti KUHP masih punya ketentuan, jadi tetap pakai fakta dan bahasa yang bertanggung jawab. Ini informasi umum, bukan nasihat hukum.</p>
+<p>Kamu tidak harus melakukan semuanya. Pilih satu langkah kecil hari ini. Diam juga pilihan, tapi pilihan yang tidak mengubah apa-apa.</p>
+<p class="small">Pandangan lain: sebagian orang menilai membagikan ulang tanpa verifikasi justru menyebarkan hoaks, dan memilih jalur lain seperti organisasi, pemilu, atau jalur hukum. Sumber hukum: <a href="https://www.mkri.id/berita/-23133" target="_blank" rel="noopener">Putusan MK 105/PUU-XXII/2024</a> dan <a href="https://www.metrotvnews.com/read/NgxCDDEM-mk-revisi-uu-ite-rusuh-di-ruang-digital-tidak-lagi-jadi-tindak-pidana" target="_blank" rel="noopener">putusan 115/PUU-XXII/2024</a>.</p>
+</div></section>
+
+<section class="section" id="jalur"><div class="section-head"><div><span class="eyebrow">Ringkasnya</span><h2>Jalur waktu</h2></div><p class="section-intro">Sepuluh titik penting, masing-masing dengan satu kalimat penjelas dan tautan sumber.</p></div><ol class="jalur" id="jl"></ol></section>
 
 <section class="section" id="timeline"><div class="section-head"><div><span class="eyebrow">Fakta bersumber</span><h2>Timeline</h2></div><p class="section-intro">Pilih topik, lalu baca siapa yang ngomong dan kapan. Semua ada link sumbernya.</p></div>
 <div class="filters"><input id="fq" type="search" placeholder="Cari di timeline, misal: Riau" aria-label="Cari di timeline"></div><div class="tabs" id="tabs"></div><div id="facts"></div><button id="more" class="big">Muat lebih banyak</button></section>
@@ -119,6 +194,10 @@ label.chk{display:inline-block;margin:0 18px 8px 0;cursor:pointer}
 <div class="box"><canvas id="c6" role="img" aria-label="Grafik korporasi tersangka karhutla"></canvas></div>
 <p class="small">Angka berasal dari lembaga dan tanggal berbeda, jadi jangan dijumlahkan. Tersangka belum berarti terbukti bersalah di pengadilan.</p></section>
 
+<section class="section" id="galeri"><div class="section-head"><div><span class="eyebrow">Dari lapangan</span><h2>Galeri aksi</h2></div><p class="section-intro">Foto berlisensi terbuka, lengkap dengan nama fotografer dan lisensinya.</p></div><div id="gal"></div></section>
+
+<section class="section" id="sosmed" hidden><div class="section-head"><div><span class="eyebrow">Embed resmi</span><h2>Dari media sosial</h2></div><p class="section-intro">Postingan ditampilkan lewat fitur embed platformnya, jadi foto tetap milik pemiliknya. Memuat skrip pihak ketiga.</p></div><div id="emb" class="emb"></div></section>
+
 <section class="section" id="kamus"><div class="section-head"><div><span class="eyebrow">Biar enggak bingung</span><h2>Kamus singkat</h2></div></div><div id="kam"></div>
 <h3>Cek fakta ala kamu</h3><div class="sts" id="tips"></div></section>
 
@@ -131,10 +210,17 @@ label.chk{display:inline-block;margin:0 18px 8px 0;cursor:pointer}
 <li>Tiap topik dibatasi 150 data dari OpenAlex, jadi bukan semua publikasi yang ada.</li>
 </ul></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>Negara?</strong><p>Dibuat dari data OpenAlex dan berita yang tautannya tertera di tiap butir.</p></div><a class="backtop" href="#top">Kembali ke atas</a></div></footer>
+<footer class="footer"><div class="wrap fgrid">
+<div><strong>Negara?</strong><p>Data, fakta bersumber, dan bacaan tentang karhutla, kebijakan publik, dan demonstrasi di Indonesia. Diperbarui 17 November 2026.</p></div>
+<div><b>Halaman</b><a href="#beranda">Beranda</a><a href="#timeline">Timeline</a><a href="#data">Data</a><a href="#perpus">Perpustakaan</a><a href="#galeri">Galeri</a><a href="#belajar">Belajar</a></div>
+<div><b>Sumber data</b><a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a><a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a><span>Berita: lihat tautan di tiap butir.</span></div>
+<div><b>Catatan</b><p>Situs ini bersifat informatif dan tidak menarik kesimpulan tentang siapa yang bersalah. Foto hanya ditampilkan dengan izin atau lisensi terbuka.</p><a href="https://github.com/serinawaa/negara-lagi-kenapa" target="_blank" rel="noopener">Kode di GitHub</a></div></div>
+<div class="wrap fbot"><span>© 2026 Negara?</span><a href="#beranda">Kembali ke atas</a></div></footer>
+<div class="player" id="pl"><div id="yt"></div><div class="np"><span id="npn">1/2</span> <span id="npt">Lagu latar</span></div><div class="pl-bar"><button id="pv" aria-label="Lagu sebelumnya">⏮</button><button id="pp" aria-label="Putar atau jeda">▶</button><button id="nx" aria-label="Lagu berikutnya">⏭</button><button id="mu" aria-label="Bisukan">🔊</button><button id="bg" aria-label="Perbesar pemutar">⤢</button></div></div>
 <div class="mood-dock"><button class="mood-toggle" id="mt" aria-expanded="false" aria-controls="mp"><span>Mood halaman</span><span>🌙</span></button>
 <div class="mood-panel" id="mp"><p>Ganti suasana warna.</p><div class="mood-options">
-<button class="mood-choice" data-m="maroon" aria-pressed="true"><span>🍷</span>Maroon</button><button class="mood-choice" data-m="ember" aria-pressed="false"><span>🔥</span>Bara</button><button class="mood-choice" data-m="midnight" aria-pressed="false"><span>🌌</span>Tengah malam</button><button class="mood-choice" data-m="plum" aria-pressed="false"><span>🔮</span>Plum</button><button class="mood-choice" data-m="ash" aria-pressed="false"><span>🌫️</span>Abu</button></div></div></div>
+<button class="mood-choice" data-m="maroon" aria-pressed="true"><span>🍷</span>Maroon</button><button class="mood-choice" data-m="ember" aria-pressed="false"><span>🔥</span>Bara</button><button class="mood-choice" data-m="midnight" aria-pressed="false"><span>🌌</span>Tengah malam</button><button class="mood-choice" data-m="plum" aria-pressed="false"><span>🔮</span>Plum</button><button class="mood-choice" data-m="ash" aria-pressed="false"><span>🌫️</span>Abu</button></div><p>Cuaca latar.</p><div class="mood-options wxo"><button class="wx" data-w="none" aria-pressed="false"><span>✨</span>Cerah</button><button class="wx" data-w="rain" aria-pressed="true"><span>🌧️</span>Hujan</button><button class="wx" data-w="ember" aria-pressed="false"><span>🔥</span>Bara</button><button class="wx" data-w="smoke" aria-pressed="false"><span>🌫️</span>Asap</button></div></div></div>
+<div class="lb" id="lb" aria-label="Foto diperbesar"><img alt=""></div>
 <script>/*!
  * Chart.js v4.4.1
  * https://www.chartjs.org
@@ -223,11 +309,79 @@ function lib(D){const L=D.lib,S=D.ds.stats;let set='sumber',vis=24,fav=[],yr='';
   $('#lm').hidden=vis>=R.length;
   document.querySelectorAll('#ll [data-f]').forEach(b=>b.onclick=()=>{const k=b.dataset.f;fav=fav.includes(k)?fav.filter(x=>x!==k):[...fav,k];try{localStorage.setItem('fav',JSON.stringify(fav))}catch(e){}go()})};
  ['lq','lt','lo','lu','lf'].forEach(i=>$('#'+i).oninput=()=>{vis=24;go()});$('#lm').onclick=()=>{vis+=24;go()};
- [['ts','sumber'],['tb','buku']].forEach(([i,k])=>$('#'+i).onclick=()=>{set=k;vis=24;$('#ts').setAttribute('aria-pressed',k==='sumber');$('#tb').setAttribute('aria-pressed',k==='buku');go()});go();window.pickLib=o=>{set='sumber';yr=o.yr||'';$('#lt').value=o.type||'';$('#lq').value='';$('#lu').checked=false;$('#lf').checked=false;vis=24;$('#ts').setAttribute('aria-pressed',true);$('#tb').setAttribute('aria-pressed',false);go();$('#perpus').scrollIntoView({behavior:'smooth'})};$('#lx').onclick=()=>{yr='';go()};
+ [['ts','sumber'],['tb','buku']].forEach(([i,k])=>$('#'+i).onclick=()=>{set=k;vis=24;$('#ts').setAttribute('aria-pressed',k==='sumber');$('#tb').setAttribute('aria-pressed',k==='buku');go()});go();window.pickLib=o=>{set='sumber';yr=o.yr||'';$('#lt').value=o.type||'';$('#lq').value='';$('#lu').checked=false;$('#lf').checked=false;vis=24;$('#ts').setAttribute('aria-pressed',true);$('#tb').setAttribute('aria-pressed',false);go();window.goTo('perpus')};$('#lx').onclick=()=>{yr='';go()};
  $('#dsn').innerHTML=[[S.n,'tulisan dianalisis'],[S.median,'median sitasi per tulisan'],[S.mean,'rata-rata sitasi'],[S.max,'sitasi tertinggi'],[S.zero+' ('+Math.round(S.zero/S.n*100)+'%)','tulisan dengan 0 sitasi'],[S.top10share+'%','sitasi total dipegang 10% tulisan teratas']].map(s=>'<div><b>'+s[0]+'</b>'+s[1]+'</div>').join('');
  bar('d1',D.ds.hist.l,D.ds.hist.v,'#e0707f',false,'Jumlah tulisan');
  $('#d1n').textContent='Rata-rata sitasi ('+S.mean+') lebih tinggi dari median ('+S.median+'). Artinya sebagian kecil tulisan dikutip sangat banyak, sedangkan banyak tulisan lain dikutip sedikit.';
  draw('d2',{type:'scatter',data:{datasets:[{data:L.sumber.map(r=>({x:r[1],y:r[5]+1,t:r[0],u:r[4]||r[3]})),backgroundColor:'#e0707f99',pointRadius:3}]},options:{...base,onClick:(e,a,c)=>{const p=a[0]&&c.data.datasets[0].data[a[0].index];if(p&&p.u)window.open(p.u,'_blank','noopener')},onHover:(e,a)=>{e.native.target.style.cursor=a.length?'pointer':'default'},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>cut(c.raw.t,60)+' ('+c.raw.x+', '+(c.raw.y-1)+' sitasi)'}}},scales:{x:{ticks:{callback:v=>String(v)},title:{display:true,text:'Tahun terbit'}},y:{type:'logarithmic',title:{display:true,text:'Sitasi + 1 (skala log)'}}}}});
  const cy=Object.keys(D.ds.cum);draw('d3',{type:'line',data:{labels:cy,datasets:[{label:'Kumulatif',data:cy.map(y=>D.ds.cum[y]),borderColor:'#4fc3a1',backgroundColor:'#4fc3a133',fill:true,tension:.25}]},options:{...base,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,title:{display:true,text:'Jumlah tulisan'}}}}});
  bar('d4',D.ds.words.map(w=>w[0]),D.ds.words.map(w=>w[1]),'#9a8cff',true,'Judul')}
+
+const GAL=/*GAL*/[]/*END*/; // isi: [{src:"img/a.jpg",alt:"...",credit:"Nama",lic:"CC BY-SA 4.0",url:"https://..."}]
+const HAND='<svg viewBox="0 0 120 140" role="img" aria-label="Ilustrasi salam tiga jari"><g fill="none" stroke="#c9a063" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M38 64V32a7 7 0 0 1 14 0v28"/><path d="M52 60V20a7 7 0 0 1 14 0v40"/><path d="M66 60V32a7 7 0 0 1 14 0v38"/><path d="M80 70v30a24 24 0 0 1-24 24h-4a24 24 0 0 1-24-24V78c0-9 6-14 12-12"/><path d="M80 78c8-2 14 2 14 9 0 6-5 9-12 9"/></g></svg>';
+const TRACKS=/*TRK*/[{id:'H-pBq3X7QJA'},{id:'qf1W5iIRTe8'}]/*END*/; // lagu pertama = yang langsung diputar setelah klik Masuk
+(()=>{let yt=null,ok=false,want=false,mute1=false,i=0,er=0;
+ const ui=on=>{document.body.classList.toggle('playing',on);$('#pp').textContent=on?'⏸':'▶'};
+ const ttl=()=>{try{$('#npt').textContent=yt.getVideoData().title||'Lagu latar'}catch(e){}$('#npn').textContent=(i+1)+'/'+TRACKS.length};
+ const nxt=d=>{i=(i+d+TRACKS.length)%TRACKS.length;ttl();if(ok)yt.loadVideoById(TRACKS[i].id)};
+ const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);
+ window.onYouTubeIframeAPIReady=()=>{yt=new YT.Player('yt',{videoId:TRACKS[0].id,width:'100%',height:'100%',playerVars:{playsinline:1,rel:0},events:{onReady:()=>{ok=true;ttl();if(want){if(mute1)yt.mute();yt.playVideo()}},onStateChange:e=>{ui(e.data===1);if(e.data===1){er=0;ttl()}if(e.data===0)nxt(1)},onError:()=>{if(++er<TRACKS.length)nxt(1)}}})};
+ const go=m=>{$('#splash').hidden=true;want=true;mute1=m;if(ok){if(m)yt.mute();yt.playVideo()}};
+ $('#enter').onclick=()=>go(false);$('#enterMute').onclick=()=>go(true);
+ $('#pp').onclick=()=>{if(ok)yt.getPlayerState()===1?yt.pauseVideo():yt.playVideo()};
+ $('#pv').onclick=()=>nxt(-1);$('#nx').onclick=()=>nxt(1);
+ $('#mu').onclick=()=>{if(!ok)return;if(yt.isMuted()){yt.unMute();$('#mu').textContent='🔊'}else{yt.mute();$('#mu').textContent='🔇'}};
+ $('#bg').onclick=()=>$('#pl').classList.toggle('big');
+ $('#gal').innerHTML=GAL.length?GAL.map(x=>'<figure class="ph"><img loading="lazy" src="'+esc(x.src)+'" alt="'+esc(x.alt||'Foto aksi')+'"><figcaption>Foto: '+esc(x.credit)+' | '+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.lic)+'</a>':esc(x.lic))+'</figcaption></figure>').join(''):'<div class="glass pad hand">'+HAND+'<p>Belum ada foto. Ilustrasi salam tiga jari ini dibuat orisinal untuk situs ini. Foto berlisensi terbuka bisa ditambahkan lewat sel Colab.</p></div>';
+})();
+const EMB=/*EMB*/[]/*END*/; // mis. ['https://x.com/.../status/123','https://www.instagram.com/p/xxx/']
+(()=>{const ph=GAL.map(x=>'<figure><img loading="lazy" src="'+esc(x.src)+'" alt="'+esc(x.alt||'Foto aksi')+'"><figcaption>'+esc(x.credit)+' | '+esc(x.lic)+'</figcaption></figure>').join('');
+ if(GAL.length){$('#st2').innerHTML=ph+ph;$('#strip').hidden=false}
+ if(!EMB.length)return;$('#sosmed').hidden=false;const need=new Set();
+ $('#emb').innerHTML=EMB.map(u=>{let m;
+  if(/(x|twitter)\.com\//.test(u)){need.add('https://platform.twitter.com/widgets.js');return '<blockquote class="twitter-tweet" data-theme="dark"><a href="'+esc(u)+'"></a></blockquote>'}
+  if(/instagram\.com\//.test(u)){need.add('https://www.instagram.com/embed.js');return '<blockquote class="instagram-media" data-instgrm-permalink="'+esc(u)+'" data-instgrm-version="14"></blockquote>'}
+  if(m=u.match(/tiktok\.com\/.*video\/(\d+)/)){need.add('https://www.tiktok.com/embed.js');return '<blockquote class="tiktok-embed" cite="'+esc(u)+'" data-video-id="'+m[1]+'"><section></section></blockquote>'}
+  if(/pinterest\.[a-z.]+\/pin\//.test(u)){need.add('https://assets.pinterest.com/js/pinit.js');return '<a data-pin-do="embedPin" href="'+esc(u)+'"></a>'}
+  return '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u)+'</a>'}).join('');
+ need.forEach(src=>{const s=document.createElement('script');s.async=true;s.src=src;document.body.appendChild(s)})})();
+
+const MS=[['2023','MK mengubah batas usia','Putusan MK No. 90/PUU-XXI/2023 mengubah batas usia capres-cawapres. Gibran Rakabuming Raka memperoleh tiket pencalonan melalui putusan ini.','https://www.jawapos.com/nasional/2506090191/sebut-pemakzulan-wapres-gibran-mustahil-terjadi-eks-ketua-mk-jimly-asshiddiqie-sudah-tiga-partai-tolak-pemakzulan'],
+['22 Apr 2024','MK: pencalonan sah','MK menilai pencalonan Gibran sah dan menyatakan intervensi presiden tidak terbukti.','https://www.kompas.id/baca/english/2024/04/22/en-mk-nilai-pencalonan-gibran-sah-intervensi-presiden-tak-terbukti'],
+['29 Apr 2025','MK dan kritik di UU ITE','Putusan MK 105/PUU-XXII/2024: pasal pencemaran nama baik UU ITE tidak berlaku bagi lembaga pemerintah. Putusan 115/PUU-XXII/2024: "kerusuhan" hanya berlaku di ruang fisik.','https://www.mkri.id/berita/-23133'],
+['3 Jun 2025','Surat Forum Purnawirawan TNI','Forum Purnawirawan TNI meminta pemakzulan Gibran diproses dan menyatakan putusan MK 90 final dan mengikat.','https://news.detik.com/berita/d-7947240/forum-purnawirawan-tni-minta-pemakzulan-gibran-putusan-mk-final-dan-mengikat'],
+['28 Mar 2026','PP Tunas berlaku','Aturan pelindungan anak di ruang digital berlaku. Tahap awal: delapan platform berisiko tinggi diminta menunda akses akun anak di bawah 16 tahun.','https://teknologi.bisnis.com/read/20260416/101/1967078/komdigi-tegaskan-pp-tunas-berlaku-lintas-platform-bukan-hanya-media-sosial'],
+['12 Jun 2026','Demo BEM UI','Aksi #Indonesiamenujubangkrut membawa lima tuntutan, termasuk menghentikan pemborosan APBN dan menghentikan MBG.','https://katadata.co.id/amp/lifestyle/varia/6a2b718d3bbb0/5-tuntutan-demo-hari-ini-hentikan-mbg-dan-koperasi-desa-merahputih'],
+['Agu 2026','Karhutla meluas','Sampai Agustus, karhutla tercatat lebih dari 202.000 hektare di 340 kabupaten (Kemenhut). Walhi mencatat lebih dari 70 persen titik panas di Kalimantan berada di area konsesi.','https://mongabay.co.id/2026/09/10/ratusan-orang-tersangka-karhutla-bagaimana-penegakan-hukum-korporasi/'],
+['6 Okt 2026','MK dan syarat pendidikan Gibran','MK membacakan putusan terkait syarat pendidikan Gibran. Putusan itu tidak memberhentikan Gibran dan tidak memerintahkan DPR memulai pemakzulan.','https://investortrust.id/national/118550/putusan-ijazah-mk-buka-isu-pemakzulan'],
+['29 Okt 2026','Perusahaan tersangka karhutla','Bareskrim mengumumkan 20 perusahaan tersangka karhutla, empat di antaranya berstatus modal asing.','https://katadata.co.id/berita/nasional/6ae3056c011da/polri-umumkan-20-perusahaan-tersangka-karhutla-empat-berstatus-modal-asing'],
+['9-10 Nov 2026','Pajak digital, demo, dan niat mundur','Pajak digital mulai berlaku 9 November. Pada 10 November mahasiswa berdemo di Jakarta dan Surabaya, dan Istana membenarkan Gibran mengajukan niat mundur kepada Presiden.','https://www.antaranews.com/berita/5844027/istana-wapres-gibran-ajukan-niatan-untuk-mundur-kepada-prabowo']];
+$('#jl').innerHTML=MS.map(m=>'<li><time>'+m[0]+'</time><h3>'+m[1]+'</h3><p>'+m[2]+'</p><a href="'+m[3]+'" target="_blank" rel="noopener">Sumber</a></li>').join('');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.jalur li').forEach(li=>io.observe(li))}else document.querySelectorAll('.jalur li').forEach(li=>li.classList.add('in'));
+(()=>{const PG={beranda:['hero','st','scope','err','mulai','ajak-suara'],timeline:['jalur','timeline'],data:['grafik','sains'],perpus:['perpus'],galeri:['galeri','sosmed'],belajar:['kuis','kamus','belum']};
+ const route=()=>{let h=decodeURIComponent(location.hash.slice(1))||'beranda';if(h==='top')h='beranda';
+  const pg=PG[h]?h:Object.keys(PG).find(k=>PG[k].includes(h))||'beranda';
+  document.body.dataset.page=pg;let n=0;
+  Object.entries(PG).forEach(([k,ids])=>ids.forEach(id=>{const e=document.getElementById(id);if(!e)return;e.classList.toggle('off',k!==pg);e.classList.remove('enter');
+   if(k===pg){void e.offsetWidth;e.style.setProperty('--d',n++);e.classList.add('enter')}}));
+  document.querySelectorAll('#nl a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+pg));
+  requestAnimationFrame(()=>{Object.values(Chart.instances).forEach(c=>{c.resize();if(c.canvas.offsetParent){c.reset();c.update()}});
+   const t=PG[h]?null:document.getElementById(h);t?t.scrollIntoView():scrollTo(0,0)})};
+ window.goTo=h=>location.hash==='#'+h?route():(location.hash=h);addEventListener('hashchange',route);route()})();
+(()=>{const lb=$('#lb');document.addEventListener('click',e=>{const im=e.target.closest('.ph img,.strip img');if(im){const x=lb.querySelector('img');x.src=im.src;x.alt=im.alt;lb.classList.add('open')}else if(e.target.closest('#lb'))lb.classList.remove('open')});
+ addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')})})();
+(()=>{const c=$('#fx'),g=c.getContext('2d'),R=matchMedia('(prefers-reduced-motion:reduce)').matches;let m='none',P=[],W=0,H=0,id=0;
+ const mk=i=>m==='rain'?{x:Math.random()*(W+200)-100,y:i?Math.random()*H:-30,l:12+Math.random()*16,v:16+Math.random()*10}
+  :m==='ember'?{x:Math.random()*W,y:i?Math.random()*H:H+10,r:.8+Math.random()*2,v:.5+Math.random()*1.3,d:Math.random()*6,a:.3+Math.random()*.6}
+  :{x:Math.random()*W,y:H*.25+Math.random()*H*.7,r:140+Math.random()*180,v:.12+Math.random()*.25};
+ const seed=()=>{const n=m==='rain'?Math.round(W/6):m==='ember'?Math.round(W/20):m==='smoke'?7:0;P=Array.from({length:n},()=>mk(true))};
+ const rs=()=>{W=c.width=innerWidth;H=c.height=innerHeight;seed()};
+ const loop=t=>{g.clearRect(0,0,W,H);
+  for(const p of P){
+   if(m==='rain'){g.strokeStyle='rgba(190,205,255,.35)';g.lineWidth=1;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(p.x-3,p.y+p.l);g.stroke();p.y+=p.v;p.x-=1.5;if(p.y>H)Object.assign(p,mk(false))}
+   else if(m==='ember'){const r=g.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);r.addColorStop(0,'rgba(255,170,80,'+p.a+')');r.addColorStop(1,'rgba(255,80,40,0)');g.fillStyle=r;g.beginPath();g.arc(p.x,p.y,p.r*5,0,7);g.fill();p.y-=p.v;p.x+=Math.sin(t/900+p.d)*.7;if(p.y<-20)Object.assign(p,mk(false))}
+   else{const r=g.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);r.addColorStop(0,'rgba(170,150,150,.10)');r.addColorStop(1,'rgba(170,150,150,0)');g.fillStyle=r;g.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);p.x+=p.v;if(p.x-p.r>W)p.x=-p.r}}
+  id=requestAnimationFrame(loop)};
+ const set=w=>{m=w;cancelAnimationFrame(id);g.clearRect(0,0,W,H);seed();document.querySelectorAll('.wx').forEach(b=>b.setAttribute('aria-pressed',b.dataset.w===w));if(w!=='none'&&!R)id=requestAnimationFrame(loop)};
+ addEventListener('resize',rs);rs();document.querySelectorAll('.wx').forEach(b=>b.onclick=()=>set(b.dataset.w));set(R?'none':'rain')})();
 </script></body></html>
